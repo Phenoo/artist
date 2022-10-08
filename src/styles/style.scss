@@ -1,0 +1,622 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Jost&family=Outfit:wght@300;400&family=Poppins&display=swap');
+$black: #121212;
+$white: #fff;
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background: $black;
+    color: $white;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-family: "Jost";
+}
+
+h2,
+h4 {
+    font-family: "Jost";
+    font-weight: 500;
+}
+
+p,
+span,
+h5 {
+    font-family: "Jost";
+}
+
+h6 {
+    font-family: "Poppins";
+}
+
+input,
+button,
+select,
+textarea {
+    outline: none;
+    border: none;
+    font-family: "Jost";
+    background: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.space-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.headline {
+    font-size: 2.25rem;
+    text-transform: uppercase;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: $white;
+    padding: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    place-items: center;
+}
+
+.tophead {
+    font-size: 1.5rem;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $white;
+}
+
+nav {
+    header {
+        .header {
+            padding: 1rem 0;
+        }
+        .nav-list {
+            display: flex;
+            gap: 1rem;
+            li {
+                text-transform: uppercase;
+            }
+        }
+    }
+    .menu-btn {
+        color: $white;
+        display: none;
+    }
+}
+
+.logo {
+    h4 {
+        text-transform: uppercase;
+        font-family: 'Comforter Brush';
+        letter-spacing: 5px;
+        font-size: 1.25rem;
+    }
+}
+
+.home {
+    width: 100vw;
+    height: 80vh;
+    margin-top: 1rem;
+    position: relative;
+    .overlay {
+        background: rgba(0, 0, 0, 0.75);
+        align-items: flex-start;
+        h2 {
+            text-align: left;
+            width: 70%;
+        }
+        p {
+            text-transform: capitalize;
+            margin-top: 1.5rem;
+        }
+    }
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.showcase {
+    margin: 4rem 0;
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    .overlay {
+        background: rgba(0, 0, 0, 0.75);
+    }
+    .tophead {
+        margin: 1rem 0;
+        width: 60%;
+    }
+}
+
+.divider {
+    background: $white;
+    width: 100px;
+    height: 2px;
+    margin: 1rem 0;
+}
+
+.mySwiper {
+    width: 100%;
+    height: 425px;
+    .slide {
+        width: auto;
+    }
+    .swiper-pagination-bullet {
+        width: 15px;
+        height: 15px;
+        background: #f09;
+    }
+}
+
+.details {
+    margin: 3rem 0;
+    .grid {
+        place-items: center;
+    }
+}
+
+.exhibit-card {
+    width: 300px;
+    height: 350px;
+    position: relative;
+    margin: 1rem 0;
+    border-radius: 10px;
+    transform: translateZ(0);
+    cursor: pointer;
+    img {
+        border-radius: 10px;
+    }
+    .between {
+        flex-direction: column;
+        align-items: flex-start;
+        text-transform: capitalize;
+        border-radius: 5px;
+        padding: 1.5rem 1rem;
+        .nature {
+            border: 2px solid $white;
+            padding: 10px;
+            border-radius: 20px;
+        }
+        h6 {
+            text-transform: uppercase;
+        }
+        h5 {
+            margin: 10px 0;
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+        svg {
+            font-size: 1rem;
+        }
+        h4 {
+            width: 100%;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.message {
+    margin: 3rem 0;
+    img {
+        border-radius: 10px;
+    }
+}
+
+.form-component {
+    max-width: 500px;
+    form {
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: column;
+        width: 100%;
+    }
+    input,
+    textarea,
+    select {
+        border-bottom: 3px solid $white;
+        width: 100%;
+        font-size: 1.25rem;
+        text-transform: capitalize;
+        color: $white;
+        padding: 10px 0;
+        &::placeholder {
+            font-family: "Jost";
+            text-transform: capitalize;
+            font-size: 1.25rem;
+            color: $white;
+        }
+    }
+    #message {
+        height: 200px;
+    }
+    .form-input {
+        display: flex;
+        gap: 1rem;
+        #checkbox {
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .btn {
+        background: $white;
+        color: $black;
+        text-transform: uppercase;
+        padding: .8rem 1.5rem;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        &:hover {
+            border: 2px solid $white;
+            background: $black;
+            color: $white;
+            transition: all 0.3s ease;
+        }
+    }
+}
+
+.social {
+    ul {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    svg {
+        font-size: 1.25rem;
+    }
+}
+
+.footer-container {
+    margin-top: 2rem;
+    padding: 1rem 0;
+}
+
+// //////////////////WORK///////////////
+.work {
+    .tophead {
+        font-style: italic;
+        margin-top: 2rem;
+    }
+    h6 {
+        font-weight: 500;
+        font-size: 1.25rem;
+    }
+}
+
+.work-container {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    white-space: nowrap;
+    margin-top: 2rem;
+}
+
+.work-card {
+    max-width: 450px;
+    height: 450px;
+    cursor: pointer;
+    transform: translateZ(0);
+    border-radius: 10px;
+    margin: 5px 0;
+    white-space: nowrap;
+    .overlay {
+        opacity: 0;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+    }
+    img {
+        transition: all .3s ease;
+        border-radius: 10px;
+        object-fit: contain;
+        &:hover {
+            transform: scale(1.03, 1.03);
+        }
+    }
+    &:hover {
+        .overlay {
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+    }
+}
+
+.single {
+    margin: 2rem auto;
+}
+
+.navigate-btn {
+    color: $white;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+}
+
+.single-project {
+    margin: 2rem auto;
+    .center {
+        gap: 1rem;
+    }
+    .text {
+        .headline {
+            font-weight: 400;
+            font-size: 2rem;
+        }
+    }
+    .image {
+        width: 450px;
+        height: 600px;
+        img {
+            object-fit: contain;
+        }
+    }
+    .info {
+        margin: 2rem 0;
+        p {
+            width: 80%;
+        }
+    }
+    .headline {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    h6 {
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 1.1rem;
+    }
+    .information {
+        margin: 2rem 0;
+    }
+    .information-container {
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 10px 0;
+        p {
+            text-transform: capitalize;
+            color: #808080;
+        }
+    }
+    .column {
+        margin: 10px 0;
+    }
+    .flex {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin: 10px 0;
+    }
+    .wrap {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        white-space: nowrap;
+        align-items: center;
+    }
+}
+
+.active {
+    .first {
+        transform: rotate(125deg);
+        transition: all 0.3s ease;
+        top: 10px;
+    }
+    .sec {
+        transform: rotate(55deg);
+        transition: all 0.3s ease;
+        margin: 0;
+    }
+}
+
+///////NAVIGATION/////////
+@media screen and (max-width: 800px) {
+    section {
+        width: 90%;
+    }
+    .logo {
+        h4 {
+            font-size: 1rem;
+        }
+    }
+    nav {
+        .header {
+            .none {
+                display: flex;
+            }
+            .menu-list {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100vw;
+                padding: 1rem;
+                background: $black;
+                z-index: 10;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                display: none;
+                touch-action: none;
+                .nav-list {
+                    flex-direction: column;
+                    text-align: center;
+                    a {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+        .menu-btn {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            z-index: 10;
+            div {
+                position: relative;
+                transition: all 0.3s ease;
+                height: 2px;
+                width: 35px;
+                background: $white;
+            }
+            .sec {
+                margin-top: 10px;
+            }
+        }
+    }
+    .grid {
+        grid-template-columns: 100%;
+    }
+    footer {
+        .space-between {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+    }
+    .work {
+        .tophead {
+            font-size: 1rem;
+        }
+        h6 {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+    }
+    .single-project {
+        h6 {
+            font-size: 0.9rem;
+        }
+        .headline {
+            font-size: 1.25rem;
+        }
+        .info {
+            p {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .tophead {
+        font-size: 1.25rem;
+    }
+    .headline {
+        font-size: 2rem;
+    }
+    .home {
+        .overlay {
+            h2 {
+                width: 90%;
+                font-size: 1.25rem;
+            }
+        }
+    }
+    .showcase {
+        .tophead {
+            width: 100%;
+        }
+    }
+    .form-component {
+        input,
+        textarea,
+        select {
+            font-size: 1rem;
+            &::placeholder {
+                font-size: 1rem;
+            }
+        }
+        p {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    section {
+        width: 95%;
+    }
+    .tophead {
+        font-size: 1rem;
+    }
+    .home {
+        .overlay {
+            padding: 10px;
+            h2 {
+                width: 100%;
+                font-size: 1.1rem;
+            }
+        }
+    }
+}
