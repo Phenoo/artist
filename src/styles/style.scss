@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Jost&family=Outfit:wght@300;400&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Jost&family=Outfit:wght@300;400&family=Poppins&display=swap');
 $black: #121212;
 $white: #fff;
 *,
@@ -34,7 +34,7 @@ a {
 
 h2,
 h4 {
-    font-family: "Jost";
+    font-family: "Outfit";
     font-weight: 500;
 }
 
@@ -54,7 +54,7 @@ select,
 textarea {
     outline: none;
     border: none;
-    font-family: "Jost";
+    font-family: "Outfit";
     background: none;
 }
 
@@ -130,13 +130,6 @@ nav {
         .header {
             padding: 1rem 0;
         }
-        .nav-list {
-            display: flex;
-            gap: 1rem;
-            li {
-                text-transform: uppercase;
-            }
-        }
     }
     .menu-btn {
         color: $white;
@@ -147,7 +140,7 @@ nav {
 .logo {
     h4 {
         text-transform: uppercase;
-        font-family: 'Comforter Brush';
+        font-family: 'Lobster Two';
         letter-spacing: 5px;
         font-size: 1.25rem;
     }
@@ -156,14 +149,14 @@ nav {
 .home {
     width: 100vw;
     height: 80vh;
-    margin-top: 1rem;
+    // margin-top: 1rem;
     position: relative;
     .overlay {
         background: rgba(0, 0, 0, 0.75);
         align-items: flex-start;
         h2 {
             text-align: left;
-            width: 70%;
+            width: 50%;
         }
         p {
             text-transform: capitalize;
@@ -324,6 +317,7 @@ video {
         display: flex;
         gap: 1rem;
         align-items: center;
+        flex-direction: row;
     }
     svg {
         font-size: 1.25rem;
@@ -400,7 +394,7 @@ video {
 }
 
 .single-project {
-    margin: 2rem auto;
+    margin: 4rem auto;
     .center {
         gap: 1rem;
     }
@@ -488,33 +482,6 @@ video {
         }
     }
     nav {
-        .header {
-            .none {
-                display: flex;
-            }
-            .menu-list {
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100vh;
-                width: 100vw;
-                padding: 1rem;
-                background: $black;
-                z-index: 10;
-                align-items: center;
-                justify-content: center;
-                transition: all 0.3s ease;
-                display: none;
-                touch-action: none;
-                .nav-list {
-                    flex-direction: column;
-                    text-align: center;
-                    a {
-                        font-size: 1.5rem;
-                    }
-                }
-            }
-        }
         .menu-btn {
             display: flex;
             align-items: center;
@@ -532,6 +499,13 @@ video {
             }
             .sec {
                 margin-top: 10px;
+            }
+        }
+    }
+    .home {
+        .overlay {
+            h2 {
+                width: 80%;
             }
         }
     }
@@ -616,6 +590,14 @@ video {
             h2 {
                 width: 100%;
                 font-size: 1.1rem;
+            }
+        }
+    }
+    .single-project {
+        .image {
+            width: 100%;
+            img {
+                object-fit: contain;
             }
         }
     }

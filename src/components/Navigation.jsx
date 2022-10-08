@@ -25,7 +25,7 @@ const MenuList = styled.div`
 }
 
 li{
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 @media(max-width: 57em){
   display: flex;
@@ -50,32 +50,26 @@ li{
     bottom: 20px;
     display: flex;
     flex-direction: row;
+    width: 100%;
+
 
     li{
       font-size: 1rem;
     }
   }
-  #icon{
-    display: flex;
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    bottom: 20px;
-    right: 80px;
-    @media(max-width: 25em){
-      width: 30px;
-      height: 30px;
-    }
-
-  }
 }
 
-ul{
+.nav-list{
   display: flex;
   gap: 1rem;
 
   @media(max-width: 57em){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -117,7 +111,7 @@ const Navigation = () => {
       <Container>
         <Logo />
         <MenuList click={click}>
-          <ul onClick={handleClick}>
+          <ul onClick={handleClick} className='nav-list'>
             <motion.li id="home"
               variants={textReveal}
               initial='bananin'
