@@ -44,6 +44,8 @@ li{
   background-color: #111;
   transform: ${props => props.click ? 'translateX(0)' : 'translateX(1000%)'};
   transition: all 0.6s ease;
+  overflow-y: hidden;
+  overflow-x: hidden;
 
   .social{
     position: absolute;

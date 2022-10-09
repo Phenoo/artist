@@ -6,6 +6,8 @@ import About4 from '../assets/about4.jpeg'
 import About5 from '../assets/about5.jpeg'
 import About6 from '../assets/about6.jpeg'
 import About7 from '../assets/about7.jpeg'
+import About8 from '../assets/about8.jpeg'
+import About9 from '../assets/about9.jpeg'
 
 import {Swiper, SwiperSlide} from 'swiper/react'
 
@@ -22,7 +24,7 @@ const Flip = () => {
     <Swiper
         modules={[Autoplay]}
         autoplay={{
-          delay: 100,
+          delay: 500,
           disableOnInteraction: false
         }}
         spaceBetween={30}

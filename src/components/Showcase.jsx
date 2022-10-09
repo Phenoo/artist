@@ -15,6 +15,7 @@ const Showcase = () => {
           <h4 className="headline">
             artworks
           </h4>
+          <div className="divider"></div>
           <p className='tophead'>
             From a material that power contains all the shapes, i bring out only one, and therein is the responsibility of the artist.
           </p>

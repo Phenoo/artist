@@ -52,6 +52,7 @@ const Details = () => {
           <h4 className='headline'>
             exhibitions
           </h4>
+          <div className="divider"></div>
           <p className='tophead'>
             Making “sculpture” also means being able to change the dynamics of a place.
           </p>

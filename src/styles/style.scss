@@ -166,7 +166,7 @@ nav {
     // margin-top: 1rem;
     position: relative;
     .overlay {
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.7);
         align-items: flex-start;
         h2 {
             text-align: left;
@@ -238,6 +238,9 @@ video {
     }
     .grey {
         margin: 2rem 0;
+    }
+    .divider {
+        background: $black;
     }
 }
 
@@ -627,6 +630,7 @@ video {
         font-size: 2rem;
     }
     .home {
+        height: 65vh;
         .overlay {
             h2 {
                 width: 90%;
@@ -681,6 +685,12 @@ video {
     .newSwiper {
         width: 250px;
         height: 370px;
+    }
+    .star-svg {
+        img {
+            width: 30px;
+            height: 30px;
+        }
     }
     .single-project {
         .image {
