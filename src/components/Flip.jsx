@@ -19,7 +19,7 @@ import { Link } from 'react-router-dom';
 
 
 const Flip = () => {
-  const cards = [About1, About2, About3,About4,About5,About6,About7  ]
+  const cards = [About1, About2, About3,About4,About5,About6,About7, About8, About9]
   return (
     <Swiper
         modules={[Autoplay]}

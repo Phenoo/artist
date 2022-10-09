@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react'
+import Loader from '../components/Loader';
 import WorkCard from '../components/WorkCard';
 import {client} from '../lib/client'
 
 
 const Work = () => {
-  const [posts, setPosts] = useState(null);
+  const [posts, setPosts] = useState([]);
 
   const fetchData = async () => {
     const query = '*[_type == "posts"]';
@@ -14,6 +15,10 @@ const Work = () => {
   useEffect(() => {
     fetchData();
   }, [])
+
+  if (posts.length < 1) {
+    return <Loader />
+  }
   return (
     <div className='work'>
       <section>
@@ -30,6 +35,7 @@ const Work = () => {
           - Aristotle
         </h6>
       <div className="work-container">
+        
         { posts &&
             posts?.map(
               (item) => <WorkCard key={item._id} item={item} />

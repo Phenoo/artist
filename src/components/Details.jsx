@@ -12,6 +12,7 @@ import ButtonComponent from './ButtonComponent'
 import Item1 from '../assets/exhibition1.jpeg'
 import Item2 from '../assets/exhibition2.jpeg'
 import Item3 from '../assets/exhibition3.jpeg'
+import { BsFillPaletteFill } from 'react-icons/bs'
 
 const Details = () => {
   
@@ -57,6 +58,9 @@ const Details = () => {
             Making “sculpture” also means being able to change the dynamics of a place.
           </p>
           <ButtonComponent link='exhibition' item='all exhibtions' />
+          <div className='star-svg'>
+            <BsFillPaletteFill />
+          </div>
         </div>
         <div>
         <Swiper

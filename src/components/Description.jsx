@@ -1,7 +1,7 @@
 import React from 'react'
 import Flip from './Flip'
 import Logo from './Logo'
-import Item from '../assets/painter.jpg'
+import { BsFillPaletteFill } from 'react-icons/bs'
 
 const Description = () => {
   return (
@@ -18,7 +18,7 @@ const Description = () => {
             Art is never finished, only abandoned.
           </p>
           <div className='star-svg'>
-            <img src={Item} alt='name' />
+            <BsFillPaletteFill />
           </div>
         </div>
         <Flip />

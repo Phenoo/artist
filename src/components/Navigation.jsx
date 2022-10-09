@@ -41,7 +41,7 @@ li{
   margin: 0;
   padding: 0;
   padding: 3rem 2rem;
-  background-color: #111;
+  background-color: #fff;
   transform: ${props => props.click ? 'translateX(0)' : 'translateX(1000%)'};
   transition: all 0.6s ease;
   overflow-y: hidden;
@@ -145,15 +145,26 @@ const Navigation = () => {
               whileInView='bananon'
               transition={{...transition, delay: 0.2}}
             >
-              <Link to='/about' onClick={() => setCurrent(2)} className={current === 2 ? 'active' : ''}>
-                about
+              <Link to='/exhibition' onClick={() => setCurrent(2)} className={current === 2 ? 'active' : ''}>
+                exhibition
               </Link>
             </motion.li>
             <motion.li
               variants={textReveal}
               initial='bananin'
               whileInView='bananon'
-              transition={{...transition, delay: 0.3}}>
+              transition={{...transition, delay: 0.3}}
+            >
+              <Link to='/about' onClick={() => setCurrent(2)} className={current === 2 ? 'active' : ''}>
+                about
+              </Link>
+            </motion.li>
+
+            <motion.li
+              variants={textReveal}
+              initial='bananin'
+              whileInView='bananon'
+              transition={{...transition, delay: 0.4}}>
               <Link to='/works' onClick={() => setCurrent(3)} className={current === 3 ? 'active' : ''}>
                 works
               </Link>
@@ -162,7 +173,7 @@ const Navigation = () => {
               variants={textReveal}
               initial='bananin'
               whileInView='bananon'
-              transition={{...transition, delay: 0.4}}>
+              transition={{...transition, delay: 0.5}}>
               <Link to='/contact' onClick={() => setCurrent(4)} className={current === 4 ? 'active' : ''}>
                 contact
               </Link>

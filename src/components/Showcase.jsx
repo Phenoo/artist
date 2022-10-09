@@ -5,6 +5,7 @@ import React from 'react'
 import ButtonComponent from './ButtonComponent'
 
 import BgVideo from '../assets/Untitled.mp4'
+import { BsFillPaletteFill } from 'react-icons/bs'
 
 const Showcase = () => {
 
@@ -21,6 +22,11 @@ const Showcase = () => {
           </p>
           <ButtonComponent link='works' item='all artworks' />
         </div>
+        <section>
+          <div className='star-svg'>
+            <BsFillPaletteFill />
+          </div>
+        </section>
     </div>
   )
 }

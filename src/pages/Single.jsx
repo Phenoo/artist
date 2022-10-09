@@ -6,6 +6,7 @@ import {GoLocation} from 'react-icons/go'
 import {AiOutlineCalendar} from 'react-icons/ai'
 import { BsFillArrowLeftCircleFill } from 'react-icons/bs'
 import WorkCard from '../components/WorkCard'
+import Loader from '../components/Loader'
 
 
 const Single = () => {
@@ -24,6 +25,8 @@ const Single = () => {
     fetchSingleData();
   })
 
+
+
   const fetchSimilarData = async () => {
     const query = '*[_type == "posts"]';
     const post = await client.fetch(query);
@@ -32,6 +35,10 @@ const Single = () => {
   useEffect(() => {
     fetchSimilarData();
   })
+
+  if (!single) {
+    return <Loader />
+  }
 
   const handleNavigate = () => {
     navigate('/works')
@@ -133,7 +140,7 @@ const Single = () => {
               </div>
               <div className='information'>
                 <h4 className='headline'>
-                  similar works
+                  similar works:
                 </h4>     
                 <div className='wrap'>
                   { filterWork &&

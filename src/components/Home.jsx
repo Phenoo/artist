@@ -1,4 +1,5 @@
 import React from 'react'
+import { BsFillPaletteFill } from 'react-icons/bs'
 import BgVideo from '../assets/bgvideo.mp4'
 
 
@@ -8,13 +9,19 @@ const Home = () => {
       <video src={BgVideo} autoPlay loop muted />
       <div className="overlay center">
         <h2>
-          There are painters who ransform the sun to a yellow spot, but there are others who with
-          the help of their art and their intelligence, transform a yellow spot into sun.
+          To create one's own world takes takes courage
+          {/* There are painters who ransform the sun to a yellow spot, but there are others who with
+          the help of their art and their intelligence, transform a yellow spot into sun. */}
         </h2>
         <p>
-          - pablo picasso
+          - georgia o'keffie
         </p>
       </div>
+      <section>
+          <div className='star-svg'>
+            <BsFillPaletteFill />
+          </div>
+        </section>
     </div>
   )
 }
