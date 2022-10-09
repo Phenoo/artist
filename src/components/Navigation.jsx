@@ -77,6 +77,7 @@ li{
   text-transform: uppercase;
   font-family: "Poppins";
   transition: 300ms ease;
+  overflow: hidden;
 
   &:hover {
     color: #f53b3b;
@@ -100,44 +101,71 @@ const Navigation = () => {
   const [current, setCurrent] = useState(1);
   const { transition, textReveal } = useAnimations();
   
+
   const handleClick = () => {
     setClick(!click);
   }
 
 
 
+
+
+
+
+
   return (
-    <section>
+    <section id='nav'>
       <Container>
         <Logo />
         <MenuList click={click}>
-          <ul onClick={handleClick} className='nav-list'>
+          <motion.ul onClick={handleClick} className='nav-list'
+            initial={{
+              y: -600,
+              transition: {type: 'spring', duration: 1, delay: .5}
+            }}
+            animate={{
+              y: 0
+            }}
+          >
             <motion.li id="home"
               variants={textReveal}
               initial='bananin'
-              animate='bananon'
-              transition={{...transition, delay: 0.3}}
+              whileInView='bananon'
+              transition={{...transition, delay: 0.1}}
             >
               <Link to='/' onClick={() => setCurrent(1)} className={current === 1 ? 'active' : ''}>
                 home
               </Link>
             </motion.li>
-            <li>
+            <motion.li
+              variants={textReveal}
+              initial='bananin'
+              whileInView='bananon'
+              transition={{...transition, delay: 0.2}}
+            >
               <Link to='/about' onClick={() => setCurrent(2)} className={current === 2 ? 'active' : ''}>
                 about
               </Link>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              variants={textReveal}
+              initial='bananin'
+              whileInView='bananon'
+              transition={{...transition, delay: 0.3}}>
               <Link to='/works' onClick={() => setCurrent(3)} className={current === 3 ? 'active' : ''}>
                 works
               </Link>
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              variants={textReveal}
+              initial='bananin'
+              whileInView='bananon'
+              transition={{...transition, delay: 0.4}}>
               <Link to='/contact' onClick={() => setCurrent(4)} className={current === 4 ? 'active' : ''}>
                 contact
               </Link>
-            </li>
-          </ul>
+            </motion.li>
+          </motion.ul>
           {click && <Social /> }
 
         </MenuList>

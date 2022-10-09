@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Item from '../assets/item3.jpeg'
+import Item from '../assets/item2.jpeg'
 import FormComponent from './FormComponent'
 
 const Message = () => {

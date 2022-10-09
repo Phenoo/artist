@@ -1,8 +1,6 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
 
-
-import { Pagination } from 'swiper'
+import { Pagination, Navigation } from 'swiper'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -61,9 +59,8 @@ const Details = () => {
         </div>
         <div>
         <Swiper
-            modules={[Pagination]}
+            modules={[Pagination, Navigation]}
             spaceBetween={30}
-            loop={true}
             slidesPerView={'auto'}
             pagination={{
               dynamicBullets: true,
@@ -71,9 +68,9 @@ const Details = () => {
             className="mySwiper"
           >
           {
-            items.map((item) => {
+            items.map((item, index) => {
               return (
-                <SwiperSlide key={item.id} className='slide'>
+                <SwiperSlide className='slide'>
                   <ExhibitCard key={item.id} item={item} />
                 </SwiperSlide>
               )

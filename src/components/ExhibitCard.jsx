@@ -4,7 +4,7 @@ import {GoLocation} from 'react-icons/go'
 
 const ExhibitCard = ({item: {nature, name, duration,location, venue, photo }}) => {
   return (
-    <div className='exhibit-card'>
+    <article className='exhibit-card'>
       <img src={photo} alt={name} />
       <div  className='space-between between overlay'>
         <div>
@@ -19,7 +19,7 @@ const ExhibitCard = ({item: {nature, name, duration,location, venue, photo }}) =
           <p>{venue}</p>
         </div>
       </div>
-    </div>
+    </article>
   )
 }
 

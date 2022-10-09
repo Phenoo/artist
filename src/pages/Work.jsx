@@ -17,8 +17,14 @@ const Work = () => {
   return (
     <div className='work'>
       <section>
+        <div className="center">
+          <div className="divider"></div>
+          <h4 className="headline">
+            our works
+          </h4>
+        </div>
         <p className='tophead'>
-          The aim of art is to represent not the outward appearance of things, but their inward significance
+          " The aim of art is to represent not the outward appearance of things, but their inward significance. "
         </p>
         <h6>
           - Aristotle

@@ -9,6 +9,13 @@ $white: #fff;
     box-sizing: border-box;
 }
 
+.root {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 html {
     overflow-x: hidden;
 }
@@ -102,11 +109,18 @@ section {
     padding: 2rem;
 }
 
+.grey {
+    color: #808080;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     place-items: center;
+    svg {
+        color: #fff;
+    }
 }
 
 .tophead {
@@ -152,7 +166,7 @@ nav {
     // margin-top: 1rem;
     position: relative;
     .overlay {
-        background: rgba(0, 0, 0, 0.75);
+        background: rgba(0, 0, 0, 0.5);
         align-items: flex-start;
         h2 {
             text-align: left;
@@ -177,7 +191,7 @@ video {
     height: 60vh;
     position: relative;
     .overlay {
-        background: rgba(0, 0, 0, 0.75);
+        background: rgba(0, 0, 0, 0.5);
     }
     .tophead {
         margin: 1rem 0;
@@ -194,14 +208,15 @@ video {
 
 .mySwiper {
     width: 100%;
-    height: 425px;
+    height: 450px;
     .slide {
         width: auto;
     }
     .swiper-pagination-bullet {
         width: 15px;
         height: 15px;
-        background: #f09;
+        background: #111;
+        border: 3px solid #fff;
     }
 }
 
@@ -212,16 +227,53 @@ video {
     }
 }
 
+.roos {
+    background: $white;
+    color: $black;
+    position: relative;
+    padding: 2rem 0;
+    min-height: 100vh;
+    .grid {
+        margin: 2rem auto;
+    }
+    .grey {
+        margin: 2rem 0;
+    }
+}
+
+.newSwiper {
+    width: 350px;
+    height: 450px;
+    overflow: hidden;
+    img {
+        object-fit: cover;
+        border-radius: 20px;
+    }
+}
+
+.star-svg {
+    position: absolute;
+    bottom: 10px;
+    margin: 2rem 0;
+    img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
 .exhibit-card {
-    width: 300px;
+    // width: 300px;
     height: 350px;
     position: relative;
     margin: 1rem 0;
     border-radius: 10px;
-    transform: translateZ(0);
     cursor: pointer;
+    overflow: hidden;
     img {
+        object-fit: cover;
         border-radius: 10px;
+        transform: translateZ(0);
+        transition: all 0.5s ease;
     }
     .between {
         flex-direction: column;
@@ -251,6 +303,13 @@ video {
             font-size: 1.5rem;
         }
     }
+    &:hover {
+        img {
+            -webkit-transform: scale(1.15);
+            -moz-transform: scale(1.15);
+            transform: scale(1.15);
+        }
+    }
 }
 
 .message {
@@ -271,7 +330,7 @@ video {
     input,
     textarea,
     select {
-        border-bottom: 3px solid $white;
+        border-bottom: 2px solid $white;
         width: 100%;
         font-size: 1.25rem;
         text-transform: capitalize;
@@ -329,10 +388,19 @@ video {
     padding: 1rem 0;
 }
 
+// //////////////////ABOUT///////////////
+.about {
+    margin-top: 10vh;
+}
+
 // //////////////////WORK///////////////
 .work {
+    // //////////////////WORK///////////////
+    margin-top: 10vh;
     .tophead {
         font-style: italic;
+        font-size: 1.25rem;
+        color: #808080;
         margin-top: 2rem;
     }
     h6 {
@@ -359,6 +427,7 @@ video {
     border-radius: 10px;
     margin: 5px 0;
     white-space: nowrap;
+    overflow: hidden;
     .overlay {
         opacity: 0;
         transition: all 0.3s ease;
@@ -368,8 +437,12 @@ video {
         transition: all .3s ease;
         border-radius: 10px;
         object-fit: contain;
+        transform: translateZ(0);
+        transition: all 0.5s ease;
         &:hover {
-            transform: scale(1.03, 1.03);
+            -webkit-transform: scale(1.15);
+            -moz-transform: scale(1.15);
+            transform: scale(1.15);
         }
     }
     &:hover {
@@ -458,6 +531,10 @@ video {
     }
 }
 
+.contact {
+    margin-top: 10vh;
+}
+
 .active {
     .first {
         transform: rotate(125deg);
@@ -494,7 +571,7 @@ video {
                 position: relative;
                 transition: all 0.3s ease;
                 height: 2px;
-                width: 35px;
+                width: 30px;
                 background: $white;
             }
             .sec {
@@ -578,9 +655,9 @@ video {
 }
 
 @media screen and (max-width: 400px) {
-    section {
-        width: 95%;
-    }
+    // section {
+    //     width: 95%;
+    // }
     .tophead {
         font-size: 1rem;
     }
@@ -592,6 +669,18 @@ video {
                 font-size: 1.1rem;
             }
         }
+    }
+    .roos {
+        .grid {
+            gap: 2rem;
+        }
+        .tophead {
+            font-size: 0.8rem;
+        }
+    }
+    .newSwiper {
+        width: 250px;
+        height: 370px;
     }
     .single-project {
         .image {
