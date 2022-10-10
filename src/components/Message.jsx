@@ -6,10 +6,18 @@ import FormComponent from './FormComponent'
 const Message = () => {
   return (
     <div className="message">
-      <section className="grid">
-        <FormComponent />
-        <div>
-          <img src={Item} alt="contact" />
+      <section>
+        <div className="center">
+          <h4 className="headline">
+            contact
+          </h4>
+          <div className="divider"></div>
+        </div>
+        <div className="grid">
+          <FormComponent />
+          <div>
+            <img src={Item} alt="contact" />
+          </div>
         </div>
       </section>
     </div>

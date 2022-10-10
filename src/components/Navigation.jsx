@@ -6,6 +6,7 @@ import Social from './Social'
 
 import {motion} from 'framer-motion'
 import { useAnimations } from './useAnimations'
+import { BsFillPaletteFill } from 'react-icons/bs'
 
 
 
@@ -15,6 +16,7 @@ align-items: center;
 justify-content: space-between;
 padding: 1rem 0;
 position: relative;
+overflow: hidden;
 `
 
 
@@ -36,23 +38,31 @@ li{
   bottom: 0;
   width: 100vw;
   max-height: 100vh;
-  overflow-y: hidden;
   z-index: 10;
   margin: 0;
-  padding: 0;
   padding: 3rem 2rem;
   background-color: #fff;
   transform: ${props => props.click ? 'translateX(0)' : 'translateX(1000%)'};
   transition: all 0.6s ease;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  overflow: hidden;
+  touch-action: none;
 
-  .social{
+  .space-between{
+    width: 85%;
+    margin: 0 auto;
     position: absolute;
     bottom: 20px;
+
+    svg{
+      color: #000;
+    }
+  }
+
+  .social{
     display: flex;
     flex-direction: row;
     width: 100%;
+    gap: 10px;
 
 
     li{
@@ -95,6 +105,7 @@ li{
   }
 
 }
+
 
 `
 
@@ -181,9 +192,16 @@ const Navigation = () => {
               </Link>
             </motion.li>
           </motion.ul>
-          {click && <Social /> }
+          {click && 
+            <div className="space-between">
+              <Social /> 
+              <div className="">
+                <BsFillPaletteFill />                
+              </div>
+            </div>
+          }
         </MenuList>
-        <button onClick={handleClick} className={`menu-btn ${click ? 'active' : ''}`}> 
+        <button onClick={handleClick} className={`menu-btn ${click ? 'activ' : ''}`}> 
           <div className="first"></div>
           <div className='sec'></div>
         </button>

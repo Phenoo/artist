@@ -29,6 +29,12 @@ const Shop = () => {
     <AnimatedCom>
       <div className="shop">
         <section>
+        <div className="center">
+            <div className="divider"></div>
+              <h4 className="headline">
+                shop
+              </h4>
+            </div>
           <div className="marketplace">
           { posts &&
                 posts?.map(

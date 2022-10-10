@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Jost&family=Outfit:wght@300;400&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Jost&Comforter+Brush&family=Outfit:wght@300;400&family=Poppins&display=swap');
 $black: #fff;
 $white: #121212;
 *,
@@ -528,7 +528,7 @@ video {
     .fourgrid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
+        gap: 1.2rem;
         overflow-x: scroll;
         &::-webkit-scrollbar {
             width: 10px;
@@ -538,7 +538,7 @@ video {
         }
     }
     .exhibit-card {
-        width: 300px;
+        width: 280px;
     }
     .pass-exhibit {
         margin: 4rem 0;
@@ -708,7 +708,7 @@ video {
     margin-top: 10vh;
     .flex {
         display: flex;
-        gap: 3rem;
+        gap: 2rem;
         align-items: center;
         flex-wrap: wrap;
     }
@@ -727,6 +727,7 @@ video {
         margin: 1rem 0;
         h6 {
             color: #fb3b3b;
+            font-size: 1.5rem;
         }
         select {
             padding: 10px;
@@ -775,9 +776,31 @@ video {
 
 .contact {
     margin-top: 10vh;
+    .contact-details {
+        margin-top: 2rem;
+        text-transform: capitalize;
+        p {
+            font-size: 0.9rem;
+        }
+        h6 {
+            color: #808080;
+            font-weight: 500;
+            margin: 1rem 0;
+            text-transform: capitalize;
+        }
+        div {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+    }
+    .tophead {
+        margin: 3rem 0 1rem;
+    }
 }
 
-.active {
+.activ {
     .first {
         transform: rotate(125deg);
         transition: all 0.3s ease;
@@ -902,8 +925,11 @@ video {
     // section {
     //     width: 95%;
     // }
+    .headline {
+        font-size: 1.5rem;
+    }
     .tophead {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     .home {
         .overlay {
@@ -950,6 +976,17 @@ video {
         }
         .flex {
             gap: 1rem;
+        }
+        .svg {
+            margin: 2rem 0;
+        }
+    }
+    .social {
+        ul {
+            gap: 10px;
+        }
+        svg {
+            font-size: 1rem;
         }
     }
 }

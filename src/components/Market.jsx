@@ -29,10 +29,10 @@ const Market = () => {
               <br />
               <br />
             </p>
-            <div className='payment'>
-              <p>
+            <p>
                 We process payments with :
               </p>
+            <div className='payment'>
                 <span>
                   <SiVisa />
                 </span>

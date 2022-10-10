@@ -16,7 +16,9 @@ const Main = () => {
         <Details />
         <Showcase />
         <Market />
-        <Message />
+        <>
+          <Message />
+        </>
       </AnimatedCom>
     </>
   )

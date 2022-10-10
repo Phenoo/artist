@@ -4,11 +4,12 @@ import {  useParams} from 'react-router-dom'
 import {client, urlFor} from '../lib/client'
 import Loader from '../components/Loader'
 
-
+import {useArtContext} from '../lib/context'
 
 const ShopSingle = () => {
   const [single, setSingle] = useState(null);
   const {slug} = useParams();
+  const {scrollTo} = useArtContext();
 
   const fetchSingleData = async () => {
     const query = `*[slug.current == "${slug}"]`;
@@ -29,6 +30,9 @@ const ShopSingle = () => {
   return (
     <div className='shop'>
       <section>
+      <div className="center">
+            <div className="divider"></div>
+          </div>
         <article>
           {
             single && single.map(item => {
@@ -96,7 +100,7 @@ const ShopSingle = () => {
                       </select>
                     </div>
                   </div>
-                  <button className="btn" type='submit'>
+                  <button className="btn" type='submit' onClick={scrollTo}>
                     add to cart
                   </button>
                 </article>
