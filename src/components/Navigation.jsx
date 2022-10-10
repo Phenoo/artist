@@ -145,8 +145,8 @@ const Navigation = () => {
               whileInView='bananon'
               transition={{...transition, delay: 0.2}}
             >
-              <Link to='/exhibition' onClick={() => setCurrent(2)} className={current === 2 ? 'active' : ''}>
-                exhibition
+              <Link to='/about' onClick={() => setCurrent(2)} className={current === 2 ? 'active' : ''}>
+                about
               </Link>
             </motion.li>
             <motion.li
@@ -155,8 +155,8 @@ const Navigation = () => {
               whileInView='bananon'
               transition={{...transition, delay: 0.3}}
             >
-              <Link to='/about' onClick={() => setCurrent(2)} className={current === 2 ? 'active' : ''}>
-                about
+              <Link to='/works' onClick={() => setCurrent(2)} className={current === 2 ? 'active' : ''}>
+                artworks
               </Link>
             </motion.li>
 
@@ -165,8 +165,17 @@ const Navigation = () => {
               initial='bananin'
               whileInView='bananon'
               transition={{...transition, delay: 0.4}}>
-              <Link to='/works' onClick={() => setCurrent(3)} className={current === 3 ? 'active' : ''}>
-                works
+              <Link to='/exhibition' onClick={() => setCurrent(3)} className={current === 3 ? 'active' : ''}>
+                exhibition
+              </Link>
+            </motion.li>
+            <motion.li
+              variants={textReveal}
+              initial='bananin'
+              whileInView='bananon'
+              transition={{...transition, delay: 0.5}}>
+              <Link to='/shop' onClick={() => setCurrent(4)} className={current === 4 ? 'active' : ''}>
+                shop
               </Link>
             </motion.li>
             <motion.li

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Loader from '../components/Loader';
+import NavigateBtn from '../components/NavigateBtn';
 import {client, urlFor} from '../lib/client'
 
 
@@ -16,7 +17,10 @@ const About = () => {
   }, [])
 
   if (!posts) {
-    return <Loader />
+    return <section className='work'>
+            <NavigateBtn link='/' />
+            <Loader />
+          </section>
   }
   return (
     <div className='about'>

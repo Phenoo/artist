@@ -246,10 +246,10 @@ video {
 .showcase {
     margin: 4rem 0;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     position: relative;
     .overlay {
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.7);
     }
     .button {
         color: #fff;
@@ -257,6 +257,9 @@ video {
     .tophead {
         margin: 1rem 0;
         width: 60%;
+    }
+    .divider {
+        background: #fff;
     }
 }
 
@@ -359,9 +362,9 @@ video {
         border-radius: 5px;
         padding: 1.5rem 1rem;
         .nature {
-            border: 2px solid $white;
-            padding: 10px;
-            border-radius: 20px;
+            border: 2px solid #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
         }
         h6 {
             text-transform: uppercase;
@@ -390,7 +393,7 @@ video {
 }
 
 .message {
-    margin: 3rem 0;
+    margin: 5rem 0;
     img {
         border-radius: 10px;
     }
@@ -500,11 +503,23 @@ video {
     .exhibit-card {
         width: 300px;
     }
+    .pass-exhibit {
+        margin: 4rem 0;
+        .pass {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            img {
+                filter: grayscale(100%);
+            }
+        }
+    }
 }
 
 // //////////////////WORK///////////////
 .work {
-    // //////////////////WORK///////////////
     margin-top: 10vh;
     .tophead {
         font-style: italic;
@@ -579,6 +594,12 @@ video {
     margin: 4rem auto;
     .center {
         gap: 1rem;
+    }
+    .video {
+        height: 400px;
+        video {
+            object-fit: cover;
+        }
     }
     .text {
         .headline {
@@ -745,6 +766,7 @@ video {
         }
     }
     .showcase {
+        height: 70vh;
         .tophead {
             width: 100%;
         }
@@ -777,6 +799,11 @@ video {
             h2 {
                 width: 100%;
             }
+        }
+    }
+    .star-svg {
+        svg {
+            font-size: 1rem;
         }
     }
     .roos {

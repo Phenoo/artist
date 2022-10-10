@@ -1,8 +1,13 @@
 import React from 'react'
+import NavigateBtn from '../components/NavigateBtn'
 
 const Shop = () => {
   return (
-    <div>Shop</div>
+    <div className="shop">
+      <section>
+        <NavigateBtn link='/' />
+      </section>
+    </div>
   )
 }
 

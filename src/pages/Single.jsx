@@ -1,19 +1,19 @@
 import React, {useState, useEffect} from 'react'
-import { useParams, useNavigate} from 'react-router-dom'
+import { useParams} from 'react-router-dom'
 import {client, urlFor} from '../lib/client'
 
 import {GoLocation} from 'react-icons/go'
 import {AiOutlineCalendar} from 'react-icons/ai'
-import { BsFillArrowLeftCircleFill } from 'react-icons/bs'
 import WorkCard from '../components/WorkCard'
 import Loader from '../components/Loader'
 
+import BgVideo from '../assets/bgvideo.mp4'
+import NavigateBtn from '../components/NavigateBtn'
 
 const Single = () => {
   const [single, setSingle] = useState(null);
   const [filterWork, setFilterWork] = useState([]);
   const {slug} = useParams();
-  const navigate = useNavigate();
 
   const fetchSingleData = async () => {
     const query = `*[slug.current == "${slug}"]`;
@@ -40,20 +40,11 @@ const Single = () => {
     return <Loader />
   }
 
-  const handleNavigate = () => {
-    navigate('/works')
-  }
+
 
   return (
     <section className='single'>
-      <button onClick={handleNavigate} className='navigate-btn'>
-        <span>
-          <BsFillArrowLeftCircleFill />
-        </span>
-        <span>
-          all works
-        </span>
-      </button>
+      <NavigateBtn link='/works' />
       <article>
       {
         single && single.map(item => {
@@ -116,6 +107,16 @@ const Single = () => {
                     </p>
                   </div>
 
+                </div>
+              </div>
+              <div className='information'>
+                <h4 className='headline'>
+                  making of {item.name}
+                </h4>
+                <div className='video' >
+                  <div>
+                    <video src={BgVideo} controls />
+                  </div>
                 </div>
               </div>
               <div className='information'>

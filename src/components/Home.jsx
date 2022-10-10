@@ -1,5 +1,4 @@
 import React from 'react'
-import { BsFillPaletteFill } from 'react-icons/bs'
 import BgVideo from '../assets/bgvideo.mp4'
 
 
@@ -18,9 +17,6 @@ const Home = () => {
         </p>
       </div>
       <section>
-          <div className='star-svg'>
-            <BsFillPaletteFill />
-          </div>
         </section>
     </div>
   )

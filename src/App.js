@@ -6,6 +6,7 @@ import Work from './pages/Work'
 import Contact from './pages/Contact'
 import Exhibition from './pages/Exhibition'
 import Single from './pages/Single'
+import Shop from './pages/Shop'
 
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
@@ -22,6 +23,7 @@ function App() {
         <Route path="/works" element={<Work />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/exhibition" element={<Exhibition />} />
+        <Route path="/shop" element={<Shop />} />
         <Route path="/work/:slug" element={<Single />} />
         <Route path="*" element={<Main />} />
       </Routes>

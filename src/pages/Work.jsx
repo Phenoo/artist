@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import Loader from '../components/Loader';
+import NavigateBtn from '../components/NavigateBtn';
 import WorkCard from '../components/WorkCard';
 import {client} from '../lib/client'
 
@@ -17,11 +18,15 @@ const Work = () => {
   }, [])
 
   if (posts.length < 1) {
-    return <Loader />
+    return <section className='work'>
+            <NavigateBtn link='/' />
+            <Loader />
+          </section>
   }
   return (
     <div className='work'>
       <section>
+        <NavigateBtn link='/' />
         <div className="center">
           <div className="divider"></div>
           <h4 className="headline">
@@ -35,7 +40,6 @@ const Work = () => {
           - Aristotle
         </h6>
       <div className="work-container">
-        
         { posts &&
             posts?.map(
               (item) => <WorkCard key={item._id} item={item} />
