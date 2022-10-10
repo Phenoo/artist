@@ -2,11 +2,14 @@ import React from 'react'
 
 import {GoLocation} from 'react-icons/go'
 import { Link } from 'react-router-dom'
+import {useArtContext} from '../lib/context'
+
+
 
 const ExhibitCard = ({item: {nature, name, duration,location, venue, photo }}) => {
+  const {scrollTo} = useArtContext()
   return (
-    
-    <article className='exhibit-card'>
+    <article className='exhibit-card' onClick={scrollTo}>
       <Link to='/exhibition'>
         <img src={photo} alt={name} />
         <div  className='space-between between overlay'>

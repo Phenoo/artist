@@ -5,8 +5,8 @@ import Item1 from '../assets/exhibition1.jpeg'
 import Item2 from '../assets/exhibition2.jpeg'
 import Item3 from '../assets/exhibition3.jpeg'
 import Item4 from '../assets/item2.jpeg'
+import AnimatedCom from '../components/AnimatedCom'
 import ExhibitCard from '../components/ExhibitCard'
-import NavigateBtn from '../components/NavigateBtn'
 
 
 const Exhibition = () => {
@@ -88,40 +88,42 @@ const Exhibition = () => {
   ]
 
   return (
-    <div className="exhibition">
-      <section>
-        <NavigateBtn link='/' />
-        <div className="center">
-            <div className="divider"></div>
-            <h4 className="headline">
-              exhibition
-            </h4>
-        </div>
-        <div className="fourgrid">
-        {
-            items.map((item, index) => {
-              return (
-                  <ExhibitCard key={item.id} item={item} />
-              )
-            })
-          }
-        </div>
-        <div className="pass-exhibit">
-          <h4 className='headline'>
-            past exhibitions
-          </h4>
-          <div className='pass'>
-            {
-              List.map((item, index) => {
+    <AnimatedCom>
+      <div className="exhibition">
+        <section>
+          <div className="center">
+              <div className="divider"></div>
+              <h4 className="headline">
+                exhibition
+              </h4>
+          </div>
+          <div className="fourgrid">
+          {
+              items.map((item, index) => {
                 return (
                     <ExhibitCard key={item.id} item={item} />
                 )
               })
             }
           </div>
-        </div>
-      </section>
-    </div>
+          <div className="pass-exhibit">
+            <h4 className='headline'>
+              past exhibitions
+            </h4>
+            <div className='pass'>
+              {
+                List.map((item, index) => {
+                  return (
+                      <ExhibitCard key={item.id} item={item} />
+                  )
+                })
+              }
+            </div>
+          </div>
+        </section>
+      </div>
+    </AnimatedCom>
+
   )
 }
 

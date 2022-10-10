@@ -8,7 +8,7 @@ import WorkCard from '../components/WorkCard'
 import Loader from '../components/Loader'
 
 import BgVideo from '../assets/bgvideo.mp4'
-import NavigateBtn from '../components/NavigateBtn'
+import AnimatedCom from '../components/AnimatedCom'
 
 const Single = () => {
   const [single, setSingle] = useState(null);
@@ -43,120 +43,121 @@ const Single = () => {
 
 
   return (
-    <section className='single'>
-      <NavigateBtn link='/works' />
-      <article>
-      {
-        single && single.map(item => {
-          return (
-            <article className="single-project">
-              <div className='center'>
-                <div className='text'>
+    <AnimatedCom>
+      <section className='single'>
+        <article>
+        {
+          single && single.map(item => {
+            return (
+              <article className="single-project">
+                <div className='center'>
+                  <div className='text'>
+                    <h4 className='headline'>
+                      "{item.name}"
+                    </h4>
+                  </div>
+                  <div className="image">
+                    <img src={urlFor(item.image)} alt="project" />
+                  </div>
+                </div>
+
+                <div className='info'>
                   <h4 className='headline'>
-                    "{item.name}"
+                    description
                   </h4>
+                  <p>
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  </p>
                 </div>
-                <div className="image">
-                  <img src={urlFor(item.image)} alt="project" />
-                </div>
-              </div>
+                <div className='information'>
+                  <h4 className='headline'>
+                    information
+                  </h4>
+                  <div className='information-container' >
+                    <div>
+                      <h6>
+                        dimensions
+                      </h6>
+                      <p>
+                        {item.size}
+                      </p>
+                    </div>
+                    <div>
+                      <h6>
+                        materials
+                      </h6>
+                      <p>
+                        {item.material && item.material.join(" , ")}
+                      </p>
+                    </div>
+                    <div>
+                      <h6>
+                        category
+                      </h6>
+                      <p>
+                        {item.category}
+                      </p>
+                    </div>
+                    <div>
+                      <h6>
+                        year
+                      </h6>
+                      <p>
+                        {item.year}
+                      </p>
+                    </div>
 
-              <div className='info'>
-                <h4 className='headline'>
-                  description
-                </h4>
-                <p>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-              </div>
-              <div className='information'>
-                <h4 className='headline'>
-                  information
-                </h4>
-                <div className='information-container' >
-                  <div>
-                    <h6>
-                      dimensions
-                    </h6>
-                    <p>
-                      {item.size}
-                    </p>
-                  </div>
-                  <div>
-                    <h6>
-                      materials
-                    </h6>
-                    <p>
-                      {item.material && item.material.join(" , ")}
-                    </p>
-                  </div>
-                  <div>
-                    <h6>
-                      category
-                    </h6>
-                    <p>
-                      {item.category}
-                    </p>
-                  </div>
-                  <div>
-                    <h6>
-                      year
-                    </h6>
-                    <p>
-                      {item.year}
-                    </p>
-                  </div>
-
-                </div>
-              </div>
-              <div className='information'>
-                <h4 className='headline'>
-                  making of {item.name}
-                </h4>
-                <div className='video' >
-                  <div>
-                    <video src={BgVideo} controls />
                   </div>
                 </div>
-              </div>
-              <div className='information'>
-                <h4 className='headline'>
-                works exhbited at:
-                </h4>
-                <div className='column' >
-                  <div>
-                    <h6>
-                      possagano (tv)
-                    </h6>
+                <div className='information'>
+                  <h4 className='headline'>
+                    making of {item.name}
+                  </h4>
+                  <div className='video' >
+                    <div>
+                      <video src={BgVideo} controls />
+                    </div>
+                  </div>
+                </div>
+                <div className='information'>
+                  <h4 className='headline'>
+                  works exhbited at:
+                  </h4>
+                  <div className='column' >
+                    <div>
+                      <h6>
+                        possagano (tv)
+                      </h6>
+                    </div>
+                    <div className='flex'>
+                      <span><GoLocation /></span>
+                      <span>Palazzo Bonaparte</span>
+                    </div>
                   </div>
                   <div className='flex'>
-                    <span><GoLocation /></span>
-                    <span>Palazzo Bonaparte</span>
+                      <span><AiOutlineCalendar /></span>
+                      <span>from 12 MAR 2022 to 03 JUL 2022</span>
+                    </div>
+                </div>
+                <div className='information'>
+                  <h4 className='headline'>
+                    similar works:
+                  </h4>     
+                  <div className='wrap'>
+                    { filterWork &&
+                      filterWork?.map(
+                        (item) => <WorkCard key={item._id} item={item} />
+                      )
+                    }
                   </div>
                 </div>
-                <div className='flex'>
-                    <span><AiOutlineCalendar /></span>
-                    <span>from 12 MAR 2022 to 03 JUL 2022</span>
-                  </div>
-              </div>
-              <div className='information'>
-                <h4 className='headline'>
-                  similar works:
-                </h4>     
-                <div className='wrap'>
-                  { filterWork &&
-                    filterWork?.map(
-                      (item) => <WorkCard key={item._id} item={item} />
-                    )
-                  }
-                </div>
-              </div>
-            </article>
-          )
-        })
-      }
-      </article>
-    </section>
+              </article>
+            )
+          })
+        }
+        </article>
+      </section>
+    </AnimatedCom>
   )
 }
 

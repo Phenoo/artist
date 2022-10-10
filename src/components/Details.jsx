@@ -75,7 +75,7 @@ const Details = () => {
           {
             items.map((item, index) => {
               return (
-                <SwiperSlide className='slide'>
+                <SwiperSlide className='slide' key={index}>
                   <ExhibitCard key={item.id} item={item} />
                 </SwiperSlide>
               )

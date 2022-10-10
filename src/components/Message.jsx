@@ -7,10 +7,10 @@ const Message = () => {
   return (
     <div className="message">
       <section className="grid">
+        <FormComponent />
         <div>
           <img src={Item} alt="contact" />
         </div>
-        <FormComponent />
       </section>
     </div>
   )

@@ -108,13 +108,6 @@ const Navigation = () => {
     setClick(!click);
   }
 
-
-
-
-
-
-
-
   return (
     <section id='nav'>
       <Container>
@@ -189,7 +182,6 @@ const Navigation = () => {
             </motion.li>
           </motion.ul>
           {click && <Social /> }
-
         </MenuList>
         <button onClick={handleClick} className={`menu-btn ${click ? 'active' : ''}`}> 
           <div className="first"></div>

@@ -16,9 +16,12 @@ import "swiper/css/effect-cards";
 
 import { Autoplay } from "swiper";
 import { Link } from 'react-router-dom';
+import {useArtContext} from '../lib/context'
 
 
 const Flip = () => {
+  const {scrollTo} = useArtContext()
+
   const cards = [About1, About2, About3,About4,About5,About6,About7, About8, About9]
   return (
     <Swiper
@@ -35,7 +38,7 @@ const Flip = () => {
           {
           cards.map((item, index) => {
             return <SwiperSlide key={item}>
-              <Link to='/works'>
+              <Link to='/works' onClick={scrollTo}>
                 <img src={item} alt="name" />
               </Link>
             </SwiperSlide>

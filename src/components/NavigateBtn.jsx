@@ -1,24 +1,21 @@
 import React from 'react'
-import { useNavigate} from 'react-router-dom'
+import {BsFillArrowLeftCircleFill} from 'react-icons/bs'
 
-import { BsFillArrowLeftCircleFill } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom'
 
-
-const NavigateBtn = () => {
+const NavigateBtn = ({item}) => {
   const navigate = useNavigate();
 
-  const handleNavigate = ({link, text}) => {
-    navigate(`${link}`);
-  }
+
   return (
-    <button onClick={handleNavigate} className='navigate-btn'>
-      <span>
-        <BsFillArrowLeftCircleFill color={navigate.color} />
-      </span>
-      <span>
-        back
-      </span>
-    </button>  
+      <button className='navigate-btn' onClick={navigate(`${item}`)}>
+        <span>
+          <BsFillArrowLeftCircleFill />
+        </span>
+        <span>
+          back
+        </span>
+      </button>
   )
 }
 
