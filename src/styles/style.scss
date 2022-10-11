@@ -735,6 +735,14 @@ video {
     }
 }
 
+.cent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
 .marketplace {
     display: flex;
     gap: 1rem;

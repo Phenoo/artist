@@ -30,7 +30,7 @@ const ShopSingle = () => {
   return (
     <div className='shop'>
       <section>
-      <div className="center">
+          <div className="cent">
             <div className="divider"></div>
           </div>
         <article>

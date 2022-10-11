@@ -29,7 +29,7 @@ const Shop = () => {
     <AnimatedCom>
       <div className="shop">
         <section>
-        <div className="center">
+        <div className="cent">
             <div className="divider"></div>
               <h4 className="headline">
                 shop
