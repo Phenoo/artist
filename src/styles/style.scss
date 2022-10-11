@@ -146,6 +146,11 @@ section {
     font-size: 1rem;
     font-weight: 600;
     color: $white;
+    transition: all 0.3s ease;
+    &:hover {
+        transform: scale(0.9);
+        transition: all 0.3s ease;
+    }
 }
 
 nav {
@@ -163,7 +168,7 @@ nav {
 .logo {
     h4 {
         text-transform: uppercase;
-        font-family: 'Lobster Two';
+        font-family: 'Comforter Brush';
         letter-spacing: 2px;
         font-size: 1.25rem;
     }
