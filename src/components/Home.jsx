@@ -16,8 +16,6 @@ const Home = () => {
           - georgia o'keffie
         </p>
       </div>
-      <section>
-        </section>
     </div>
   )
 }

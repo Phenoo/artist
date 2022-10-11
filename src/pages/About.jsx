@@ -1,67 +1,81 @@
-import React, { useEffect, useState } from 'react'
-import Loader from '../components/Loader';
-import NavigateBtn from '../components/NavigateBtn';
-import {client, urlFor} from '../lib/client'
-
+import BgVideo from '../assets/about.mp4'
 
 const About = () => {
-  const [posts, setPosts] = useState(null);
-
-  const fetchData = async () => {
-    const query = '*[_type == "abouts"]';
-    const post = await client.fetch(query);
-    setPosts(post);
-  }
-  useEffect(() => {
-    fetchData();
-  }, [])
-
-  if (!posts) {
-    return <section className='work'>
-            <NavigateBtn link='/' />
-            <Loader />
-          </section>
-  }
   return (
     <div className='about'>
+      <div className="home">
+          <video src={BgVideo} autoPlay loop muted />
+          <div className="overlay center">
+            <h2>
+              There are painters who ransform the sun to a yellow spot, but there are others who with
+              the help of their art and their intelligence, transform a yellow spot into sun.
+            </h2>
+          </div>
+      </div>
       <section>
-        <div className="center">
-          <div className="divider"></div>
-          <h4 className="headline">
-            about us
-          </h4>
-        </div>
         <div className="about-body">
-        { posts &&
-            posts?.map(
-              (item) => {
-                return (
-                  <div>
-                    <h4 className="aboutname">
-                      {item.name}
-                    </h4>
-                    <p className="aboutdesc">
-                      {item.description}
-                    </p>
-                    <div>
-                      <img src={urlFor(item.image)} alt='project-item' />
-                    </div>
-                    <div className="cert">
-                      <h4 className="headline">
-                        certifications
-                      </h4>
-                      <h6>
-                        {/* {item.certname} */}
-                      </h6>
-                      <p>
-                        {/* {item.place} */}
-                      </p>
-                    </div>
-                  </div>
-                )
-              }
-            )
-          }
+          <p>
+            <span>godson  </span>   
+                is orem ipsum dolor sit amet consectetur adipisicing elit. Veniam sit temporibus iusto quo molestias ad cum officia, quas et adipisci ipsum nihil deleniti eligendi assumenda minima amet quasi nam nesciunt recusandae. Assumenda distinctio, eum aliquid voluptates cupiditate eius laborum vitae expedita eveniet doloribus amet vel ratione eligendi temporibus minima reiciendis quia neque ad aspernatur accusamus. Harum dignissimos sunt porro magni, explicabo, sequi minima repellat, in molestias accusantium incidunt impedit ipsa.
+          </p>
+          <h4 className="headline">
+            "Art is an expression of love"
+          </h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium laboriosam sunt rerum pariatur inventore libero, incidunt corrupti officiis! Quis libero aspernatur commodi pariatur quo. Quo earum molestiae omnis saepe nesciunt repellendus eum voluptate, a, voluptates ratione et distinctio expedita molestias.
+          </p>
+        </div>
+        <div className="information">
+          <h4 className="headline">
+            collective exhibitions
+          </h4>
+          <div className="info">
+            <p>
+              <em>2020</em> "Paint nd Sip, The Exhibition", Palazzo, Rome, Italy.
+            </p>
+            <p>
+              <em>2019</em> "Godson, The Exhibition", Palazzo, Rome, Italy.
+            </p>
+          </div>
+        </div>
+        <div className="information">
+          <h4 className="headline">
+            personal exhibitions
+          </h4>
+          <div className="info">
+            <p>
+              <em>2020</em> "Godson, The Exhibition", Palazzo, Bonaparte, Italy.
+            </p>
+            <p>
+              <em>2019</em> "Godson, The Exhibition", Palazzo, Bonaparte, Italy.
+            </p>
+          </div>
+        </div>
+        <div className="information">
+          <h4 className="headline">
+            awards
+          </h4>
+          <div className="info">
+            <p>
+              <em>2020</em> "Culture and identity" Award, Anagni, Italy.
+            </p>
+            <p>
+              <em>2019</em> "Culture and identity" Award, Anagni, Italy.
+            </p>
+          </div>
+        </div>
+        <div className="information">
+          <h4 className="headline">
+            course and lesson
+          </h4>
+          <div className="info">
+            <p>
+            <em>2018</em> master class, tokyo academy of art, new york, japan.
+            </p>
+            <p>
+              <em>2019</em> master class, new york academy of art, new york, usa.
+            </p>
+          </div>
         </div>
         <div className="wantus">
           <h4 className="tophead">

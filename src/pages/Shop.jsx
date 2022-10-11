@@ -34,6 +34,9 @@ const Shop = () => {
               <h4 className="headline">
                 shop
               </h4>
+              <p className="tophead grey">
+                Buy your preferred artworks here 
+              </p>
             </div>
           <div className="marketplace">
           { posts &&
