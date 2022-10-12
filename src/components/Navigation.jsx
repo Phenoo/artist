@@ -133,13 +133,13 @@ const Navigation = () => {
         <Logo />
         <MenuList click={click}>
           <motion.ul onClick={handleClick} className='nav-list'
-            // initial={{
-            //   y: -600,
-            //   transition: {type: 'spring', duration: 1, delay: .5}
-            // }}
-            // animate={{
-            //   y: 0
-            // }}
+            initial={{
+              y: -600,
+              transition: {type: 'spring', duration: 1, delay: .5}
+            }}
+            animate={{
+              y: 0
+            }}
           >
             <motion.li id="home"
               variants={textReveal}
@@ -182,10 +182,10 @@ const Navigation = () => {
               </Link>
             </motion.li>
             <motion.li
-              // variants={textReveal}
-              // initial='bananin'
-              // whileInView='bananon'
-              // transition={{...transition, delay: 0.5}}
+              variants={textReveal}
+              initial='bananin'
+              whileInView='bananon'
+              transition={{...transition, delay: 0.5}}
               >
               <Link to='/shop' onClick={() => setCurrent(4)} className={current === 4 ? 'active' : ''}>
                 shop ({totalQuantities})
