@@ -26,15 +26,15 @@ const Single = () => {
   })
 
 
-
   const fetchSimilarData = async () => {
     const query = '*[_type == "posts"]';
     const post = await client.fetch(query);
-    setFilterWork(post.filter(item =>  item.category === 'Fiction'));
+    setFilterWork(post.filter(item =>  item.category === "Fiction"));
   }
   useEffect(() => {
     fetchSimilarData();
   })
+
 
   if (!single) {
     return <Loader />
@@ -49,7 +49,7 @@ const Single = () => {
         {
           single && single.map(item => {
             return (
-              <article className="single-project">
+              <article className="single-project" key={item._id}>
                 <div className='center'>
                   <div className='text'>
                     <h4 className='headline'>

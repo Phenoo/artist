@@ -9,7 +9,7 @@ import {useArtContext} from '../lib/context'
 const ShopSingle = () => {
   const [single, setSingle] = useState(null);
   const {slug} = useParams();
-  const {scrollTo} = useArtContext();
+  const { setSelectType, setSelectSize} = useArtContext();
 
   const fetchSingleData = async () => {
     const query = `*[slug.current == "${slug}"]`;
@@ -81,7 +81,9 @@ const ShopSingle = () => {
                       <h4 className='headline'>
                         Potrait type
                       </h4>
-                      <select name="select" id="">
+                      <select name="select" id=""
+                        onChange={(e) => setSelectType(e.target.value)}
+                      >
                         <option value="0">Select an option : </option>
                         <option value="1">Canvas Print (USD 50.95 - USD 52.55)</option>
                         <option value="2">Digital File (USD 62.95 - USD 63.25)</option>
@@ -92,7 +94,9 @@ const ShopSingle = () => {
                       <h4 className='headline'>
                         Potrait size
                       </h4>
-                      <select name="select" id="">
+                      <select name="select" id="" 
+                        onChange={(e) => setSelectSize(e.target.value)}
+                      >
                         <option value="0">Select an option : </option>
                         <option value="1">5x10 (USD 10.95 - USD 12.55)</option>
                         <option value="2">5x10 (USD 12.95 - USD 13.25)</option>
@@ -100,7 +104,7 @@ const ShopSingle = () => {
                       </select>
                     </div>
                   </div>
-                  <button className="btn" type='submit' onClick={scrollTo}>
+                  <button className="btn" type='submit'>
                     add to cart
                   </button>
                 </article>

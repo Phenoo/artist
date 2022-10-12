@@ -1,26 +1,15 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import Loader from '../components/Loader';
-import NavigateBtn from '../components/NavigateBtn';
 import WorkCard from '../components/WorkCard';
-import {client} from '../lib/client'
 import AnimatedCom from '../components/AnimatedCom'
-
+import {useArtContext} from '../lib/context'
 
 const Work = () => {
-  const [posts, setPosts] = useState([]);
+    const {activeFilter, handleWorkFilter, categories, filterWork } = useArtContext();
 
-  const fetchData = async () => {
-    const query = '*[_type == "posts"]';
-    const post = await client.fetch(query);
-    setPosts(post);
-  }
-  useEffect(() => {
-    fetchData();
-  }, [])
 
-  if (posts.length < 1) {
+  if (filterWork.length < 1) {
     return <section className='work'>
-            <NavigateBtn link='/' />
             <Loader />
           </section>
   }
@@ -40,9 +29,20 @@ const Work = () => {
           <h6>
             - Aristotle
           </h6>
+          <div className="button-filter">
+            {
+              categories.map((item, index) => {
+                return (
+                  <button key={index} className={`filter-btn ${activeFilter === item ? 'active' : ''}`} onClick={() => handleWorkFilter(item)}>
+                    {item}
+                  </button>
+                )
+              })
+            }
+          </div>
         <div className="work-container">
-          { posts &&
-              posts?.map(
+          {
+              filterWork?.map(
                 (item) => <WorkCard key={item._id} item={item} />
               )
             }

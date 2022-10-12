@@ -171,6 +171,7 @@ nav {
         font-family: 'Comforter Brush';
         letter-spacing: 2px;
         font-size: 1.25rem;
+        font-weight: 900;
     }
 }
 
@@ -596,6 +597,26 @@ video {
 }
 
 // //////////////////WORK///////////////
+.button-filter {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    .active {
+        background: #f53b3b;
+    }
+}
+
+.filter-btn {
+    border-radius: 20px;
+    color: $black;
+    background: $white;
+    padding: 10px 1rem;
+    text-transform: capitalize;
+}
+
 .work {
     margin-top: 10vh;
     .tophead {
@@ -758,7 +779,7 @@ video {
     .svg {
         display: flex;
         gap: 0.4rem;
-        margin: 1rem 0;
+        margin: 2rem 0;
         svg {
             font-size: 1.4rem;
         }

@@ -9,6 +9,8 @@ import { useAnimations } from './useAnimations'
 import { BsFillPaletteFill } from 'react-icons/bs'
 
 
+import {useArtContext} from '../lib/context'
+
 
 const Container = styled.nav`
 display: flex;
@@ -95,9 +97,15 @@ li{
     color: #f53b3b;
     transition: 300ms ease;
   }
-
+.paint{
+  display: none;
+}
   @media(max-width: 57em){
     font-size: 2rem;
+    .paint{
+      display: flex;
+    }
+    
 
     @media(max-width: 25em){
       font-size: 1.5rem;
@@ -113,7 +121,7 @@ const Navigation = () => {
   const [click, setClick] = useState(false);
   const [current, setCurrent] = useState(1);
   const { transition, textReveal } = useAnimations();
-  
+  const {totalQuantities} = useArtContext();
 
   const handleClick = () => {
     setClick(!click);
@@ -125,13 +133,13 @@ const Navigation = () => {
         <Logo />
         <MenuList click={click}>
           <motion.ul onClick={handleClick} className='nav-list'
-            initial={{
-              y: -600,
-              transition: {type: 'spring', duration: 1, delay: .5}
-            }}
-            animate={{
-              y: 0
-            }}
+            // initial={{
+            //   y: -600,
+            //   transition: {type: 'spring', duration: 1, delay: .5}
+            // }}
+            // animate={{
+            //   y: 0
+            // }}
           >
             <motion.li id="home"
               variants={textReveal}
@@ -174,12 +182,13 @@ const Navigation = () => {
               </Link>
             </motion.li>
             <motion.li
-              variants={textReveal}
-              initial='bananin'
-              whileInView='bananon'
-              transition={{...transition, delay: 0.5}}>
+              // variants={textReveal}
+              // initial='bananin'
+              // whileInView='bananon'
+              // transition={{...transition, delay: 0.5}}
+              >
               <Link to='/shop' onClick={() => setCurrent(4)} className={current === 4 ? 'active' : ''}>
-                shop
+                shop ({totalQuantities})
               </Link>
             </motion.li>
             <motion.li
@@ -195,7 +204,7 @@ const Navigation = () => {
           {click && 
             <div className="space-between">
               <Social /> 
-              <div className="">
+              <div className="paint">
                 <BsFillPaletteFill />                
               </div>
             </div>
