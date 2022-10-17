@@ -63,5 +63,10 @@ export default {
             title: 'Category',
             type: 'string',
         },
+        {
+            name: 'Price',
+            title: 'Price',
+            type: 'number',
+        },
     ]
 }

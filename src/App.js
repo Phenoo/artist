@@ -20,6 +20,8 @@ import MainLoader from './components/MainLoader'
 
 import './styles/style.scss';
 import ShopSingle from "./pages/ShopSingle";
+import { Toaster } from "react-hot-toast";
+import Checkout from "./pages/Checkout";
 
 function App() {
   const location = useLocation();
@@ -28,7 +30,7 @@ function App() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false)
-    }, 5800)
+    }, 5000)
     return () => clearTimeout(timeout)
   }, []);
 
@@ -40,6 +42,7 @@ function App() {
   return (
     <>
       <Navigation />
+      <Toaster />
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
           <Route exact path="/" element={<Main />} />
@@ -47,6 +50,7 @@ function App() {
           <Route path="/works" element={<Work />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/exhibition" element={<Exhibition />} />
+          <Route path="/check" element={<Checkout />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/work/:slug" element={<Single />} />
           <Route path="/shops/:slug" element={<ShopSingle />} />

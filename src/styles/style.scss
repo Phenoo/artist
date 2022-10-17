@@ -718,7 +718,6 @@ video {
         }
     }
     .info {
-        margin: 2rem 0;
         p {
             width: 80%;
         }
@@ -751,9 +750,9 @@ video {
     }
     .flex {
         display: flex;
-        gap: 1rem;
+        gap: 2rem;
         align-items: center;
-        margin: 10px 0;
+        margin: 1rem 0;
     }
     .wrap {
         display: flex;
@@ -765,7 +764,96 @@ video {
 }
 
 // //////////////////SHOP///////////////
-.shop {
+.cart-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    z-index: 100;
+    .cart-container {
+        position: relative;
+        height: 100vh;
+        width: 60vw;
+        padding: 2rem;
+        float: right;
+        background: #000;
+    }
+    .cart-items {
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .image {
+            width: 100px;
+            height: 120px;
+            img {
+                object-fit: cover;
+            }
+        }
+        .space-between {
+            margin-top: 10px;
+        }
+        .delete-btn {
+            color: #f53b3b;
+            font-size: 1.4rem;
+        }
+        .text {
+            width: 100%;
+            color: #fff;
+            h4 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+            span {
+                border: 1px solid #fff;
+                padding: 5px 10px;
+            }
+            p {
+                font-size: 1.25rem;
+            }
+        }
+        .quantity {
+            font-size: 1rem;
+            .plus {
+                color: #48ff48;
+            }
+            .minus {
+                color: #f53b3b;
+            }
+        }
+    }
+    .cart-bottom {
+        position: absolute;
+        bottom: 12px;
+        right: 5px;
+        width: 100%;
+        padding: 1rem 3rem;
+        .btn-container {
+            margin-top: 1rem;
+        }
+    }
+}
+
+.cart {
+    position: fixed;
+    cursor: pointer;
+    left: 40%;
+    bottom: 20px;
+    padding: 14px 10px;
+    width: 100%;
+    height: 100%;
+    svg {
+        font-size: 1.4rem;
+    }
+}
+
+.shop,
+.shop-single {
     margin-top: 10vh;
     .flex {
         display: flex;
@@ -807,9 +895,11 @@ video {
 .marketplace {
     display: flex;
     gap: 1rem;
+    width: 100%;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
 }
 
 .shop-card {
@@ -833,9 +923,15 @@ video {
     .shop-text {
         text-align: center;
         margin-top: 10px;
+        padding: 0 10px;
         h6 {
             text-transform: uppercase;
             font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        p {
+            color: #f53b3b;
+            font-weight: 700;
         }
     }
     &:hover {
@@ -940,6 +1036,10 @@ video {
         }
     }
     .single-project {
+        .image {
+            width: 400px;
+            height: 500px;
+        }
         h6 {
             font-size: 0.9rem;
         }
@@ -988,12 +1088,24 @@ video {
             font-size: 0.8rem;
         }
     }
+    .cart-wrapper {
+        .cart-container {
+            width: 80vw;
+        }
+    }
+    .shop-card {
+        svg {
+            font-size: 1rem;
+        }
+    }
 }
 
 @media screen and (max-width: 400px) {
-    // section {
-    //     width: 95%;
-    // }
+    .shop-single {
+        section {
+            width: 85%;
+        }
+    }
     .headline {
         font-size: 1.5rem;
     }
@@ -1040,6 +1152,12 @@ video {
         }
     }
     .shop {
+        section {
+            width: 95%;
+        }
+    }
+    .shop,
+    .shop-single {
         .center {
             height: 500px;
             margin-bottom: 1rem;
@@ -1069,6 +1187,37 @@ video {
             h2 {
                 font-size: 1.25rem;
             }
+        }
+    }
+    .shop-card {
+        width: 150px;
+        height: 260px;
+        border-radius: 5px;
+        img {
+            height: 190px;
+        }
+        .shop-text {
+            margin-top: 5px;
+            h6 {
+                font-size: 0.8rem;
+            }
+            p {
+                font-size: 0.7rem;
+            }
+        }
+    }
+    .filter-btn {
+        padding: 7px 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .shop-card {
+        width: 130px;
+        height: 230px;
+        img {
+            height: 170px;
         }
     }
 }

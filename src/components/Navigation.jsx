@@ -9,7 +9,6 @@ import { useAnimations } from './useAnimations'
 import { BsFillPaletteFill } from 'react-icons/bs'
 
 
-import {useArtContext} from '../lib/context'
 
 
 const Container = styled.nav`
@@ -23,6 +22,12 @@ overflow: hidden;
 
 
 const MenuList = styled.div`
+.paint{
+  display: none;
+  @media(max-width: 57em){
+    display: flex;
+  }
+}
 
 .social{
   display: none;
@@ -97,9 +102,7 @@ li{
     color: #f53b3b;
     transition: 300ms ease;
   }
-.paint{
-  display: none;
-}
+
   @media(max-width: 57em){
     font-size: 2rem;
     .paint{
@@ -121,7 +124,6 @@ const Navigation = () => {
   const [click, setClick] = useState(false);
   const [current, setCurrent] = useState(1);
   const { transition, textReveal } = useAnimations();
-  const {totalQuantities} = useArtContext();
 
   const handleClick = () => {
     setClick(!click);
@@ -181,7 +183,7 @@ const Navigation = () => {
                 exhibition
               </Link>
             </motion.li>
-            <motion.li
+            {/* <motion.li
               variants={textReveal}
               initial='bananin'
               whileInView='bananon'
@@ -190,7 +192,7 @@ const Navigation = () => {
               <Link to='/shop' onClick={() => setCurrent(4)} className={current === 4 ? 'active' : ''}>
                 shop ({totalQuantities})
               </Link>
-            </motion.li>
+            </motion.li> */}
             <motion.li
               variants={textReveal}
               initial='bananin'

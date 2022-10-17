@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { FaStar } from 'react-icons/fa';
+import { FaShoppingBag, FaStar } from 'react-icons/fa';
 import {  useParams} from 'react-router-dom'
 import {client, urlFor} from '../lib/client'
 import Loader from '../components/Loader'
 
+
 import {useArtContext} from '../lib/context'
+import Cart from '../components/Cart';
 
 const ShopSingle = () => {
   const [single, setSingle] = useState(null);
   const {slug} = useParams();
-  const { setSelectType, setSelectSize} = useArtContext();
+  const { setSelectType, setSelectSize, showCart,setShowCart, totalQuantities, qty, onAdd} = useArtContext();
 
   const fetchSingleData = async () => {
     const query = `*[slug.current == "${slug}"]`;
@@ -28,24 +30,27 @@ const ShopSingle = () => {
 
 
   return (
-    <div className='shop'>
+    <div className='shop-single'>
       <section>
           <div className="cent">
             <div className="divider"></div>
           </div>
         <article>
           {
-            single && single.map(item => {
+            single && single.map(product => {
               return (
                 <article className="single-project">
                   <div className='center'>
                     <div className='text'>
                       <h4 className='headline'>
-                        "{item.name}"
+                        "{product.name}"
                       </h4>
+                      <button onClick={() => setShowCart(!showCart)}>
+                        <FaShoppingBag /> {totalQuantities}
+                      </button>
                     </div>
                     <div className="image">
-                      <img src={urlFor(item.image)} alt="project" />
+                      <img src={urlFor(product.image)} alt="project" />
                     </div>
                   </div>
                   <div className="infox">
@@ -74,7 +79,7 @@ const ShopSingle = () => {
                         price
                       </h4>
                       <h6 className='headline'>
-                        ${item.year /20}
+                        ${product.price}
                       </h6>
                     </div>
                     <div className='infox'>
@@ -85,9 +90,9 @@ const ShopSingle = () => {
                         onChange={(e) => setSelectType(e.target.value)}
                       >
                         <option value="0">Select an option : </option>
-                        <option value="1">Canvas Print (USD 50.95 - USD 52.55)</option>
-                        <option value="2">Digital File (USD 62.95 - USD 63.25)</option>
-                        <option value="3">Matte Art Print(USD 73.95 - USD 74.25)</option>
+                        <option value="1">Canvas Print (USD 50.9 5)</option>
+                        <option value="2">Digital File (USD 62.95)</option>
+                        <option value="3">Matte Art Print(USD 73.95)</option>
                       </select>
                     </div>
                     <div className='info'>
@@ -104,7 +109,7 @@ const ShopSingle = () => {
                       </select>
                     </div>
                   </div>
-                  <button className="btn" type='submit'>
+                  <button className="btn" type='submit' onClick={() => onAdd(product, qty)}>
                     add to cart
                   </button>
                 </article>
@@ -112,6 +117,7 @@ const ShopSingle = () => {
             })
           }
         </article>
+        {showCart && <Cart />}
       </section>
     </div>
   )
