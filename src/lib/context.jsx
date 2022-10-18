@@ -19,14 +19,34 @@ export function ArtProvider({children}){
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [qty, setQty] = useState(1);
-  const [totalQuantities, setTotalQuantities] = useState();
+  const [totalQuantities, setTotalQuantities] = useState(1);
   const [totalPrice, setTotalPrice] = useState();
+
 
   let foundProduct;
   let index;
 
 
+  const storeInStorage = (value, valueName) => {
+    sessionStorage.setItem(valueName, typeof value === "object" ? value.map((e) => JSON.stringify(e)) : value)
+  }
 
+  const getInStorage = (value) => {
+    return sessionStorage.getItem(value)
+  
+  }
+
+  useEffect(() => {
+    storeInStorage(cartItems, 'CART_ITEMS');
+    storeInStorage(totalQuantities, 'TOTAL_QUANTITIES');
+    storeInStorage(totalPrice, 'TOTAL_PRICE');
+  }, [cartItems, totalQuantities, totalPrice])
+
+  useEffect(() => {
+    getInStorage(cartItems, 'CART_ITEMS')
+    getInStorage(totalQuantities, 'TOTAL_QUANTITIES');
+    getInStorage(totalPrice, 'TOTAL_PRICE');
+  }, [cartItems, totalQuantities, totalPrice])
 
   const scrollTo = () => {
     let element = document.getElementById('nav');
