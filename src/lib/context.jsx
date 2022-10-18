@@ -14,13 +14,12 @@ export function ArtProvider({children}){
   const [categories, setCategories] = useState()
   const [filterWork, setFilterWork] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
-  const [selectSize, setSelectSize] = useState()
   const [selectType, setSelectType] = useState()
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [qty, setQty] = useState(1);
-  const [totalQuantities, setTotalQuantities] = useState(1);
-  const [totalPrice, setTotalPrice] = useState();
+  const [totalQuantities, setTotalQuantities] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
 
   let foundProduct;
@@ -28,25 +27,24 @@ export function ArtProvider({children}){
 
 
   const storeInStorage = (value, valueName) => {
-    sessionStorage.setItem(valueName, typeof value === "object" ? value.map((e) => JSON.stringify(e)) : value)
+    localStorage.setItem(valueName, typeof value === "object" ? value.map((e) => JSON.stringify(e)) : value)
   }
 
-  const getInStorage = (value) => {
-    return sessionStorage.getItem(value)
-  
+  const getInStorage = (valueName) => {
+    return localStorage.getItem(valueName)
   }
 
   useEffect(() => {
-    storeInStorage(cartItems, 'CART_ITEMS');
-    storeInStorage(totalQuantities, 'TOTAL_QUANTITIES');
-    storeInStorage(totalPrice, 'TOTAL_PRICE');
+    storeInStorage(+cartItems, 'CART_ITEMS');
+    storeInStorage(+totalQuantities, 'TOTAL_QUANTITIES');
+    storeInStorage(+totalPrice, 'TOTAL_PRICE');
   }, [cartItems, totalQuantities, totalPrice])
 
   useEffect(() => {
-    getInStorage(cartItems, 'CART_ITEMS')
-    getInStorage(totalQuantities, 'TOTAL_QUANTITIES');
-    getInStorage(totalPrice, 'TOTAL_PRICE');
-  }, [cartItems, totalQuantities, totalPrice])
+    getInStorage('CART_ITEMS')
+    getInStorage('TOTAL_QUANTITIES');
+    getInStorage('TOTAL_PRICE');
+  })
 
   const scrollTo = () => {
     let element = document.getElementById('nav');
@@ -76,17 +74,56 @@ export function ArtProvider({children}){
       }
   };
 
-  const onAdd = (item, quantity) => {
-   
+  const onAdd = (product, quantity) => {
+    const checkProductInCart = cartItems.find((item) => item._id === product._id);
+    setTotalQuantities((prevTotalQty) => prevTotalQty + quantity);
+    setTotalPrice((prevTotalPrice) => prevTotalPrice + product.Price * quantity);
+
+    if(checkProductInCart){
+      const updateCartItems = cartItems.map((cartProduct) => {
+        if(cartProduct._id === product._id) return {
+          ...cartProduct,
+          quantity: cartProduct.quantity + quantity
+        }
+      })
+
+      setCartItems(updateCartItems)
+    }
+    else{
+      product.quantity = quantity;
+      setCartItems([...cartItems, {...product}])
+    }
+    toast.success(`${product.name} added to the cart.`)
   } 
 
   const onRemove = (product) => {
-
+    foundProduct = cartItems.find((item) => item._id === product._id);
+    const newCartItems = cartItems.filter((item) => item._id !== product._id);
+  
+    setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.Price * product.quantity);
+    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - foundProduct.quantity);
+    setCartItems(newCartItems);
   }
 
   const toggleCartItemQuanitity = (id, value) => {
-    
+    foundProduct = cartItems.find((item) => item._id === id)
+    index = cartItems.findIndex((product) => product._id === id)
+    const newCartItems = cartItems.filter((item) => item._id !== id)
+
+    if(value === 'inc'){
+      setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1}]);
+      setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.Price);
+      setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + 1);
+
+    }else if(value === 'dec'){
+      if(foundProduct.quantity > 1 ){
+        setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1}]);
+        setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.Price);
+        setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1);
+      }
+    }
   }
+
   useEffect(() => {
     fetchData();
   }, [])
@@ -99,8 +136,6 @@ export function ArtProvider({children}){
     activeFilter,
     selectType,
     setSelectType,
-    selectSize,
-    setSelectSize,
     totalQuantities, 
     setTotalQuantities,
     cartItems,
@@ -112,7 +147,8 @@ export function ArtProvider({children}){
     toggleCartItemQuanitity,
     onRemove,
     qty,
-    setQty
+    setQty,
+    setTotalPrice,
   }
 
   return (

@@ -11,7 +11,7 @@ import Cart from '../components/Cart';
 const ShopSingle = () => {
   const [single, setSingle] = useState(null);
   const {slug} = useParams();
-  const { setSelectType, setSelectSize, showCart,setShowCart, totalQuantities, qty, onAdd} = useArtContext();
+  const { setSelectType, showCart,setShowCart, totalQuantities, qty, onAdd} = useArtContext();
 
   const fetchSingleData = async () => {
     const query = `*[slug.current == "${slug}"]`;
@@ -41,12 +41,15 @@ const ShopSingle = () => {
               return (
                 <article className="single-project">
                   <div className='center'>
-                    <div className='text'>
+                    <div className='text flex'>
                       <h4 className='headline'>
                         "{product.name}"
                       </h4>
-                      <button onClick={() => setShowCart(!showCart)}>
-                        <FaShoppingBag /> {totalQuantities}
+                      <button onClick={() => setShowCart(!showCart)} className='shopping-bag'> 
+                        <FaShoppingBag /> 
+                        <span>
+                          {`${!totalQuantities ? '0' : totalQuantities}`}
+                        </span>
                       </button>
                     </div>
                     <div className="image">
@@ -79,7 +82,7 @@ const ShopSingle = () => {
                         price
                       </h4>
                       <h6 className='headline'>
-                        ${product.price}
+                        ${product.Price}
                       </h6>
                     </div>
                     <div className='infox'>
@@ -93,19 +96,6 @@ const ShopSingle = () => {
                         <option value="1">Canvas Print (USD 50.9 5)</option>
                         <option value="2">Digital File (USD 62.95)</option>
                         <option value="3">Matte Art Print(USD 73.95)</option>
-                      </select>
-                    </div>
-                    <div className='info'>
-                      <h4 className='headline'>
-                        Potrait size
-                      </h4>
-                      <select name="select" id="" 
-                        onChange={(e) => setSelectSize(e.target.value)}
-                      >
-                        <option value="0">Select an option : </option>
-                        <option value="1">5x10 (USD 10.95 - USD 12.55)</option>
-                        <option value="2">5x10 (USD 12.95 - USD 13.25)</option>
-                        <option value="3">5x10 (USD 13.95 - USD 14.25)</option>
                       </select>
                     </div>
                   </div>

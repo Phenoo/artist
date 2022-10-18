@@ -7,6 +7,7 @@ import Social from './Social'
 import {motion} from 'framer-motion'
 import { useAnimations } from './useAnimations'
 import { BsFillPaletteFill } from 'react-icons/bs'
+import { useArtContext } from '../lib/context'
 
 
 
@@ -124,6 +125,8 @@ const Navigation = () => {
   const [click, setClick] = useState(false);
   const [current, setCurrent] = useState(1);
   const { transition, textReveal } = useAnimations();
+  const { totalQuantities} = useArtContext();
+
 
   const handleClick = () => {
     setClick(!click);
@@ -183,21 +186,21 @@ const Navigation = () => {
                 exhibition
               </Link>
             </motion.li>
-            {/* <motion.li
+            <motion.li
               variants={textReveal}
               initial='bananin'
               whileInView='bananon'
               transition={{...transition, delay: 0.5}}
               >
               <Link to='/shop' onClick={() => setCurrent(4)} className={current === 4 ? 'active' : ''}>
-                shop ({totalQuantities})
+                shop ( {`${!totalQuantities ? '0' : totalQuantities}`})
               </Link>
-            </motion.li> */}
+            </motion.li>
             <motion.li
               variants={textReveal}
               initial='bananin'
               whileInView='bananon'
-              transition={{...transition, delay: 0.5}}>
+              transition={{...transition, delay: 0.6}}>
               <Link to='/contact' onClick={() => setCurrent(4)} className={current === 4 ? 'active' : ''}>
                 contact
               </Link>
