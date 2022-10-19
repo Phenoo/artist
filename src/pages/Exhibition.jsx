@@ -1,4 +1,5 @@
 import React from 'react'
+import Wantus from '../components/Wantus';
 
 
 import Item1 from '../assets/exhibition1.jpeg'
@@ -120,11 +121,8 @@ const Exhibition = () => {
               }
             </div>
           </div>
-          <div className="wantus">
-          <h4 className="tophead">
-            Want us to work together? <a href="mailto:descometusah@gmail.com">Contact us</a>
-          </h4>
-        </div>
+          
+        <Wantus />
         </section>
       </div>
     </AnimatedCom>

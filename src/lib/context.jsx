@@ -16,35 +16,24 @@ export function ArtProvider({children}){
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectType, setSelectType] = useState()
   const [showCart, setShowCart] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("CART_ITEMS")));
   const [qty, setQty] = useState(1);
-  const [totalQuantities, setTotalQuantities] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalQuantities, setTotalQuantities] = useState(JSON.parse(localStorage.getItem("TOTAL_QUANTITIES")));
+  const [totalPrice, setTotalPrice] = useState(JSON.parse(localStorage.getItem("TOTAL_PRICE")));
 
 
   let foundProduct;
   let index;
 
-
-  const storeInStorage = (value, valueName) => {
-    localStorage.setItem(valueName, typeof value === "object" ? value.map((e) => JSON.stringify(e)) : value)
-  }
-
-  const getInStorage = (valueName) => {
-    return localStorage.getItem(valueName)
-  }
+  console.log(totalQuantities)
 
   useEffect(() => {
-    storeInStorage(+cartItems, 'CART_ITEMS');
-    storeInStorage(+totalQuantities, 'TOTAL_QUANTITIES');
-    storeInStorage(+totalPrice, 'TOTAL_PRICE');
-  }, [cartItems, totalQuantities, totalPrice])
-
-  useEffect(() => {
-    getInStorage('CART_ITEMS')
-    getInStorage('TOTAL_QUANTITIES');
-    getInStorage('TOTAL_PRICE');
+    localStorage.setItem('CART_ITEMS', JSON.stringify(cartItems))
+    localStorage.setItem('TOTAL_QUANTITIES', JSON.stringify(totalQuantities))
+    localStorage.setItem('TOTAL_PRICE', JSON.stringify(totalPrice))
   })
+
+
 
   const scrollTo = () => {
     let element = document.getElementById('nav');

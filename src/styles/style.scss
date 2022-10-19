@@ -544,7 +544,7 @@ video {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             width: fit-content;
-            border-bottom: 2px dotted #111;
+            border-bottom: 2px solid #111;
         }
         p {
             text-transform: capitalize;
@@ -565,7 +565,8 @@ video {
 
 // //////////////////EXHIBITION///////////////
 .exhibition {
-    margin-top: 10vh;
+    margin-top: 20vh;
+    margin-bottom: 15vh;
     .fourgrid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -618,7 +619,8 @@ video {
 }
 
 .work {
-    margin-top: 10vh;
+    margin-top: 20vh;
+    margin-bottom: 15vh;
     .tophead {
         font-style: italic;
         font-size: 1.25rem;
@@ -696,6 +698,7 @@ video {
 
 .single-project {
     margin: 1rem auto;
+    margin-bottom: 30vh;
     .center {
         gap: 1rem;
     }
@@ -878,6 +881,15 @@ video {
     }
 }
 
+.shopping-button {
+    position: absolute;
+    top: -200px;
+    left: 70%;
+    @media screen and (min-width: 800px) {
+        left: 50%;
+    }
+}
+
 .shopping-bag {
     position: relative;
     span {
@@ -886,17 +898,17 @@ video {
         position: absolute;
         top: -10px;
         left: 10px;
-        padding: 4px 8px;
+        padding: 2px 6px;
         border-radius: 50%;
     }
     svg {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 }
 
 .shop,
 .shop-single {
-    margin-top: 10vh;
+    margin-top: 20vh;
     .flex {
         display: flex;
         gap: 2rem;
@@ -982,7 +994,8 @@ video {
 }
 
 .contact {
-    margin-top: 10vh;
+    margin-top: 20vh;
+    margin-bottom: 15vh;
     .contact-details {
         margin-top: 2rem;
         text-transform: capitalize;
@@ -1078,8 +1091,9 @@ video {
         }
     }
     .single-project {
+        position: relative;
         .image {
-            width: 400px;
+            width: 100%;
             height: 500px;
         }
         h6 {
@@ -1188,6 +1202,7 @@ video {
     .single-project {
         .image {
             width: 100%;
+            height: 450px;
             img {
                 object-fit: contain;
             }
@@ -1200,6 +1215,11 @@ video {
     }
     .shop,
     .shop-single {
+        .text {
+            .headline {
+                font-size: 1.25rem;
+            }
+        }
         .center {
             height: 500px;
             margin-bottom: 1rem;

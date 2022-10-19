@@ -41,16 +41,18 @@ const ShopSingle = () => {
               return (
                 <article className="single-project">
                   <div className='center'>
+                  <div className="shopping-button">
+                    <button onClick={() => setShowCart(!showCart)} className='shopping-bag'> 
+                      <FaShoppingBag /> 
+                      <span>
+                        {totalQuantities}
+                      </span>
+                    </button>
+                  </div>
                     <div className='text flex'>
                       <h4 className='headline'>
-                        "{product.name}"
+                        {product.name}
                       </h4>
-                      <button onClick={() => setShowCart(!showCart)} className='shopping-bag'> 
-                        <FaShoppingBag /> 
-                        <span>
-                          {`${!totalQuantities ? '0' : totalQuantities}`}
-                        </span>
-                      </button>
                     </div>
                     <div className="image">
                       <img src={urlFor(product.image)} alt="project" />

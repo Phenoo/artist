@@ -1,6 +1,7 @@
 import React from 'react'
 import Loader from '../components/Loader';
 import WorkCard from '../components/WorkCard';
+import Wantus from '../components/Wantus';
 import AnimatedCom from '../components/AnimatedCom'
 import {useArtContext} from '../lib/context'
 
@@ -47,11 +48,7 @@ const Work = () => {
               )
             }
           </div>
-          <div className="wantus">
-            <h4 className="tophead">
-              Want us to work together? <a href="mailto:descometusah@gmail.com">Contact us</a>
-            </h4>
-        </div>
+          <Wantus />
         </section>
       </div>
     </AnimatedCom>

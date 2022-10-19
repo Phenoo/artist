@@ -23,7 +23,7 @@ const ShopCard = ({product}) => {
             {product.name}
           </h6>
           <div className="space-between">
-            <p>${product.year}</p>
+            <p>${product.Price}</p>
             <AiOutlineShoppingCart />
           </div>
         </div>

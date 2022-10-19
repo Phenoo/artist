@@ -1,4 +1,5 @@
 import BgVideo from '../assets/about.mp4'
+import Wantus from '../components/Wantus';
 
 const About = () => {
   return (
@@ -77,11 +78,8 @@ const About = () => {
             </p>
           </div>
         </div>
-        <div className="wantus">
-          <h4 className="tophead">
-            Want us to work together? <a href="mailto:descometusah@gmail.com">Contact us</a>
-          </h4>
-        </div>
+        <Wantus />
+        
       </section>
     </div>
   )

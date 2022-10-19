@@ -27,13 +27,11 @@ const Shop = () => {
               <h4 className="headline">
                 shop
               </h4>
-              <span onClick={() => setShowCart(!showCart)}>
-                <FaShoppingBag />{totalQuantities}
-              </span>
               <p className="tophead grey">
                 Buy your preferred artworks here 
               </p>
           </div>
+
           <div className="button-filter">
             {categories &&
               categories.map((item, index) => {
@@ -45,6 +43,14 @@ const Shop = () => {
               })
             }
           </div>
+          <div className="shopping-button">
+                    <button onClick={() => setShowCart(!showCart)} className='shopping-bag'> 
+                      <FaShoppingBag /> 
+                      <span>
+                        {totalQuantities}
+                      </span>
+                    </button>
+                  </div>
           <div className="marketplace">
           {filterWork &&
             filterWork?.map(

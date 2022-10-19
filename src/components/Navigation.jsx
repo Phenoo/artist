@@ -55,6 +55,10 @@ li{
   overflow: hidden;
   touch-action: none;
 
+  a{
+    font-family: "Lobster Two";
+  }
+
   .space-between{
     width: 85%;
     margin: 0 auto;
@@ -172,7 +176,7 @@ const Navigation = () => {
               whileInView='bananon'
               transition={{...transition, delay: 0.3}}
             >
-              <Link to='/works' onClick={() => setCurrent(2)} className={current === 2 ? 'active' : ''}>
+              <Link to='/works' onClick={() => setCurrent(3)} className={current === 3 ? 'active' : ''}>
                 artworks
               </Link>
             </motion.li>
@@ -182,7 +186,7 @@ const Navigation = () => {
               initial='bananin'
               whileInView='bananon'
               transition={{...transition, delay: 0.4}}>
-              <Link to='/exhibition' onClick={() => setCurrent(3)} className={current === 3 ? 'active' : ''}>
+              <Link to='/exhibition' onClick={() => setCurrent(4)} className={current === 4 ? 'active' : ''}>
                 exhibition
               </Link>
             </motion.li>
@@ -192,8 +196,8 @@ const Navigation = () => {
               whileInView='bananon'
               transition={{...transition, delay: 0.5}}
               >
-              <Link to='/shop' onClick={() => setCurrent(4)} className={current === 4 ? 'active' : ''}>
-                shop ( {`${!totalQuantities ? '0' : totalQuantities}`})
+              <Link to='/shop' onClick={() => setCurrent(5)} className={current === 5 ? 'active' : ''}>
+                shop [{totalQuantities}]
               </Link>
             </motion.li>
             <motion.li
@@ -201,7 +205,7 @@ const Navigation = () => {
               initial='bananin'
               whileInView='bananon'
               transition={{...transition, delay: 0.6}}>
-              <Link to='/contact' onClick={() => setCurrent(4)} className={current === 4 ? 'active' : ''}>
+              <Link to='/contact' onClick={() => setCurrent(6)} className={current === 6 ? 'active' : ''}>
                 contact
               </Link>
             </motion.li>
