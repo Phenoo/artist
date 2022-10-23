@@ -39,7 +39,7 @@ const ShopSingle = () => {
           {
             single && single.map(product => {
               return (
-                <article className="single-project">
+                <article className="single-project" key={product.slug}>
                   <div className='center'>
                   <div className="shopping-button">
                     <button onClick={() => setShowCart(!showCart)} className='shopping-bag'> 

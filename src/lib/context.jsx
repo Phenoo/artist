@@ -25,7 +25,6 @@ export function ArtProvider({children}){
   let foundProduct;
   let index;
 
-  console.log(totalQuantities)
 
   useEffect(() => {
     localStorage.setItem('CART_ITEMS', JSON.stringify(cartItems))

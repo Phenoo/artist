@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { urlFor } from '../lib/client';
 import { useArtContext } from '../lib/context'
 import { AiOutlineMinus, AiOutlinePlus,} from 'react-icons/ai';
@@ -12,14 +12,6 @@ const Cart = () => {
 
   const {showCart, setShowCart, totalQuantities, cartItems, totalPrice, onRemove, toggleCartItemQuanitity } = useArtContext();
   
-  const getInStorage = (value) => {
-    return sessionStorage.getItem(value)
-  }
-  useEffect(() => {
-    getInStorage(totalQuantities)
-  })
-  
-  console.log(totalQuantities)
   return (
     <div className="cart-wrapper" ref={cartRef}>
       <div className='cart-container'>
