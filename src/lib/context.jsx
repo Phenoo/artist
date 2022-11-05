@@ -16,10 +16,10 @@ export function ArtProvider({children}){
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectType, setSelectType] = useState()
   const [showCart, setShowCart] = useState(false);
-  const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("CART_ITEMS")));
+  const [cartItems, setCartItems] = useState([]);
   const [qty, setQty] = useState(1);
-  const [totalQuantities, setTotalQuantities] = useState(JSON.parse(localStorage.getItem("TOTAL_QUANTITIES")));
-  const [totalPrice, setTotalPrice] = useState(JSON.parse(localStorage.getItem("TOTAL_PRICE")));
+  const [totalQuantities, setTotalQuantities] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
 
   let foundProduct;
@@ -62,8 +62,10 @@ export function ArtProvider({children}){
       }
   };
 
+
   const onAdd = (product, quantity) => {
     const checkProductInCart = cartItems.find((item) => item._id === product._id);
+
     setTotalQuantities((prevTotalQty) => prevTotalQty + quantity);
     setTotalPrice((prevTotalPrice) => prevTotalPrice + product.Price * quantity);
 

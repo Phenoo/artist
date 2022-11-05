@@ -38,7 +38,6 @@ const Cart = () => {
           }
         <div className='cart-items'>
           {
-            cartItems && 
             cartItems.map(item => {
               return  <>
                 <article className="item" key={item._id}>
