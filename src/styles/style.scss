@@ -993,6 +993,52 @@ video {
     }
 }
 
+// //////////////////cCHECK///////////////
+.check {
+    height: 80vh;
+    margin-top: 10vh;
+    img {
+        height: 70px;
+        width: 50px;
+        object-fit: cover;
+    }
+    .item-article {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+    .item-details__amount {
+        text-align: center;
+        margin: 1rem 0;
+    }
+    .item-details {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .paystack-button {
+        border-radius: 5px;
+        padding: 10px 1rem;
+        color: #fff;
+        background: #0a930a;
+        text-align: center;
+        margin: 1rem 0;
+    }
+    .checkout-field {
+        margin: 1rem 0;
+    }
+    input {
+        border-bottom: 1px solid #111;
+    }
+}
+
 .contact {
     margin-top: 20vh;
     margin-bottom: 15vh;

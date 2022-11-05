@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import { PaystackButton } from 'react-paystack';
+import { urlFor } from '../lib/client';
 import { useArtContext } from '../lib/context'
 
 const Checkout = () => {
-  const {totalPrice} = useArtContext()
+  const {totalPrice, cartItems} = useArtContext()
   const publicKey = process.env.REACT_PAYSTACK_KEY;
   const amount = totalPrice;
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
 
-  const resetForm = () => {
-    setEmail('');
-    setName('');
-    setPhone('');
-  };
+
 
   const componentProps = {
     email,
@@ -25,34 +22,38 @@ const Checkout = () => {
     },
     publicKey,
     text: 'Buy Now',
-    onSuccess: ({ reference }) => {
+    onSuccess: () => {
       alert(
-        `Your purchase was successful! Transaction reference: ${reference}`
+        `Your purchase was successful! Transaction referenc`
       );
-      resetForm();
     },
-    onClose: () => alert("Wait! You need this oil, don't go!!!!"),
+    onClose: () => alert("Wait! You need it!"),
   };
 
   return (
-    <div className="App">
-      <div className="container">
+    <div className="check">
+      <div className="cent">
+        <div className="divider"></div>
+        <h4 className="headline">
+          checkout
+        </h4>
+      </div>
+      <section className="container">
         <div className="item">
-          <div className="overlay-effect"></div>
-          <img
-            className="item-image"
-            src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-            alt="product"
-          />
-          <div className="item-details">
-            <p className="item-details__title">Coconut Oil</p>
-            <p className="item-details__amount">NGN {amount / 100}</p>
-          </div>
+          {
+            cartItems.map((item) => {
+              return <article key={item._id} className="item-article"> 
+                  <img src={urlFor(item.image)} alt='product' />
+                  <p>{item.quantity} pcs of {item.name}</p>
+              </article>
+            })
+
+          }
         </div>
         <div className="checkout">
           <div className="checkout-form">
             <div className="checkout-field">
-              <label>Name</label>
+              <label>Name: </label>
               <input
                 type="text"
                 id="name"
@@ -61,7 +62,7 @@ const Checkout = () => {
               />
             </div>
             <div className="checkout-field">
-              <label>Email</label>
+              <label>Email: </label>
               <input
                 type="text"
                 id="email"
@@ -70,7 +71,7 @@ const Checkout = () => {
               />
             </div>
             <div className="checkout-field">
-              <label>Phone</label>
+              <label>Phone: </label>
               <input
                 type="text"
                 id="phone"
@@ -78,10 +79,15 @@ const Checkout = () => {
                 onChange={(e) => setPhone(e.target.value)}
               />
             </div>
-            <PaystackButton className="paystack-button" {...componentProps} />
+            <div className="item-details">
+              <p className="item-details__amount">Amount: <span>${amount}</span></p>
+            </div>
+            <div className="item-details">
+              <PaystackButton className="paystack-button" {...componentProps} />
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
