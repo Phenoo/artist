@@ -11,12 +11,18 @@ const Cart = () => {
   const cartRef = useRef();
 
   const {showCart, setShowCart, totalQuantities, cartItems, totalPrice, onRemove, toggleCartItemQuanitity } = useArtContext();
+  console.log(cartItems)
+
+
+  const handleShow = () => {
+    setShowCart(!showCart)
+  }
   
   return (
     <div className="cart-wrapper" ref={cartRef}>
       <div className='cart-container'>
         <div className="flex">
-          <button onClick={() => setShowCart(!showCart)} className='btn'>
+          <button onClick={handleShow} className='btn'>
             Back
           </button>
           <h3>
@@ -37,7 +43,7 @@ const Cart = () => {
             )
           }
         <div className='cart-items'>
-          {
+          {cartItems &&
             cartItems.map(item => {
               return  <>
                 <article className="item" key={item._id}>

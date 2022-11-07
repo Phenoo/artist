@@ -23,6 +23,11 @@ const ShopSingle = () => {
     fetchSingleData();
   })
 
+  const handleBuy = (product, quantity) => {
+    onAdd(product, quantity);
+    setShowCart(true)
+  }
+
   
   if (!single) {
     return <Loader />
@@ -101,9 +106,14 @@ const ShopSingle = () => {
                       </select>
                     </div>
                   </div>
-                  <button className="btn" type='submit' onClick={() => onAdd(product, qty)}>
-                    add to cart
-                  </button>
+                  <div className="flex">
+                    <button className="btn" type='submit' onClick={() => onAdd(product, qty)}>
+                      add to cart
+                    </button>
+                    <button className="btn-white" type='submit' onClick={() => handleBuy(product, qty)}>
+                      buy now
+                    </button>
+                  </div>
                 </article>
               )
             })

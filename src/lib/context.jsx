@@ -28,11 +28,9 @@ export function ArtProvider({children}){
 
   useEffect(() => {
     localStorage.setItem('CART_ITEMS', JSON.stringify(cartItems))
-    localStorage.setItem('TOTAL_QUANTITIES', JSON.stringify(totalQuantities))
     localStorage.setItem('TOTAL_PRICE', JSON.stringify(totalPrice))
+    localStorage.setItem('TOTAL_QUANTITIES', JSON.stringify(totalQuantities))
   })
-
-
 
   const scrollTo = () => {
     let element = document.getElementById('nav');
@@ -62,6 +60,22 @@ export function ArtProvider({children}){
       }
   };
 
+  // const onAdd = (product, quantity) => {
+  //   const exist = cartItems.find((x) => x.id === product.id);
+
+    
+  //   setTotalQuantities((prevTotalQty) => prevTotalQty + quantity);
+  //   setTotalPrice((prevTotalPrice) => prevTotalPrice + product.Price * quantity);
+
+  //   if(exist){
+  //     setCartItems(cartItems.map((x) => x.id === product.id ? {...exist, quantity: x.quantity + 1} : x))
+  //   }
+  //   else{
+  //     setCartItems([...cartItems, {...product}]);
+  //   }
+  //   toast.success(`${product.name} added to the cart.`)
+  // } 
+
 
   const onAdd = (product, quantity) => {
     const checkProductInCart = cartItems.find((item) => item._id === product._id);
@@ -70,19 +84,22 @@ export function ArtProvider({children}){
     setTotalPrice((prevTotalPrice) => prevTotalPrice + product.Price * quantity);
 
     if(checkProductInCart){
-      const updateCartItems = cartItems.map((cartProduct) => {
-        if(cartProduct._id === product._id) return {
-          ...cartProduct,
-          quantity: cartProduct.quantity + quantity
-        }
-      })
+      setCartItems(cartItems.map((x) => x._id === product._id ? {...checkProductInCart, quantity: x.quantity + 1} : x))
 
-      setCartItems(updateCartItems)
+      // const updateCartItems = cartItems.map((cartProduct) => {
+      //   if(cartProduct._id === product._id) return {
+      //     ...cartProduct,
+      //     quantity: cartProduct.quantity + quantity
+      //   }
+      // })
+
+      // setCartItems([...updateCartItems])
     }
     else{
       product.quantity = quantity;
       setCartItems([...cartItems, {...product}])
     }
+    console.log(cartItems);
     toast.success(`${product.name} added to the cart.`)
   } 
 

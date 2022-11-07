@@ -494,6 +494,17 @@ video {
     }
 }
 
+.btn-white {
+    text-transform: uppercase;
+    padding: .8rem 1.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    border: 2px solid $white;
+    background: $black;
+    color: $white;
+}
+
 .social {
     ul {
         display: flex;
@@ -995,28 +1006,35 @@ video {
 
 // //////////////////cCHECK///////////////
 .check {
-    height: 80vh;
+    min-height: 80vh;
     margin-top: 10vh;
     img {
-        height: 70px;
-        width: 50px;
+        height: 40px;
+        width: 40px;
         object-fit: cover;
+    }
+    form {
+        max-width: 450px;
+        margin: 0 auto;
     }
     .item-article {
         display: flex;
         align-items: center;
         gap: 10px;
+        margin: 10px 0;
     }
     .container {
         display: flex;
         justify-content: center;
-        align-items: center;
         flex-direction: column;
         margin-top: 2rem;
     }
     .item-details__amount {
         text-align: center;
         margin: 1rem 0;
+    }
+    label {
+        display: block;
     }
     .item-details {
         width: 100%;
@@ -1035,7 +1053,12 @@ video {
         margin: 1rem 0;
     }
     input {
-        border-bottom: 1px solid #111;
+        text-transform: capitalize;
+        border: 3px solid #898989;
+        background: #ddd;
+        padding: 10px;
+        border-radius: 3px;
+        width: 100%;
     }
 }
 
@@ -1198,6 +1221,11 @@ video {
     .shop-card {
         svg {
             font-size: 1rem;
+        }
+    }
+    .check {
+        form {
+            width: 95%;
         }
     }
 }

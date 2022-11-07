@@ -4,8 +4,8 @@ import { urlFor } from '../lib/client';
 import { useArtContext } from '../lib/context'
 
 const Checkout = () => {
-  const {totalPrice, cartItems} = useArtContext()
-  const publicKey = process.env.REACT_PAYSTACK_KEY;
+  const {totalPrice, cartItems} = useArtContext();
+  const publicKey = 'pk_test_bd6ad0e416813de2f7b7cd3e0fbee6636483b886';
   const amount = totalPrice;
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -24,7 +24,7 @@ const Checkout = () => {
     text: 'Buy Now',
     onSuccess: () => {
       alert(
-        `Your purchase was successful! Transaction referenc`
+        `Your purchase was successful! Transaction reference`
       );
     },
     onClose: () => alert("Wait! You need it!"),
@@ -51,41 +51,44 @@ const Checkout = () => {
           }
         </div>
         <div className="checkout">
-          <div className="checkout-form">
+          <form className="checkout-form">
             <div className="checkout-field">
-              <label>Name: </label>
+              <label>Name </label>
               <input
                 type="text"
                 id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
             </div>
             <div className="checkout-field">
-              <label>Email: </label>
+              <label>Email </label>
               <input
                 type="text"
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
             <div className="checkout-field">
-              <label>Phone: </label>
+              <label>Phone </label>
               <input
                 type="text"
                 id="phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
+                required
               />
             </div>
             <div className="item-details">
               <p className="item-details__amount">Amount: <span>${amount}</span></p>
             </div>
             <div className="item-details">
-              <PaystackButton className="paystack-button" {...componentProps} />
+              <PaystackButton className="paystack-button" {...componentProps} type='submit' />
             </div>
-          </div>
+          </form>
         </div>
       </section>
     </div>
