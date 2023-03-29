@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Jost&Comforter+Brush&family=Outfit:wght@300;400&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Jost&Comforter+Brush&family=Open+Sans:wght@300;400&family=Poppins&display=swap');
 $black: #fff;
 $white: #121212;
 *,
@@ -44,11 +44,12 @@ h4 {
     font-family: "Outfit", sans-serif;
     font-weight: 500;
 }
-
+h5{
+    font-family: "Jost";
+}
 p,
-span,
-h5 {
-    font-family: "Jost", sans-serif;
+span {
+    font-family: "Open Sans", sans-serif;
 }
 
 h6 {
@@ -86,6 +87,21 @@ img {
 section {
     width: 85%;
     margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+    background:  #fe0222;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: #fff;
+    -webkit-border-radius: 1ex;
+}
+  
+::-webkit-scrollbar-corner {
+    background:  #fe0222;
 }
 
 .space-between {
@@ -165,7 +181,12 @@ nav {
     }
 }
 
+.active{
+    color: #ff7c7c;
+}
+
 .logo {
+    z-index: 100;
     h4 {
         text-transform: uppercase;
         font-family: 'Comforter Brush';
@@ -220,8 +241,7 @@ nav {
 
 .home {
     width: 100vw;
-    height: 80vh;
-    // margin-top: 1rem;
+    height: 90vh;
     position: relative;
     .overlay {
         background: rgba(0, 0, 0, 0.7);
@@ -523,8 +543,11 @@ video {
 }
 
 .footer-container {
-    margin-top: 2rem;
+    margin-top: 5rem;
     padding: 1rem 0;
+    .logo{
+        z-index: 1;
+    }
 }
 
 // //////////////////ABOUT///////////////
@@ -576,7 +599,7 @@ video {
 
 // //////////////////EXHIBITION///////////////
 .exhibition {
-    margin-top: 20vh;
+    margin-top: 30vh;
     margin-bottom: 15vh;
     .fourgrid {
         display: grid;
@@ -616,6 +639,7 @@ video {
     align-items: center;
     justify-content: center;
     margin: 2rem 0;
+    width: 100%;
     .active {
         background: #f53b3b;
     }
@@ -630,7 +654,7 @@ video {
 }
 
 .work {
-    margin-top: 20vh;
+    margin-top: 30vh;
     margin-bottom: 15vh;
     .tophead {
         font-style: italic;
@@ -646,7 +670,7 @@ video {
 
 .work-container {
     display: flex;
-    gap: 5px;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -695,7 +719,7 @@ video {
 }
 
 .single {
-    margin: 2rem auto;
+    margin: 30vh auto 2rem;
 }
 
 .navigate-btn {
@@ -732,6 +756,7 @@ video {
         }
     }
     .info {
+        margin: 2rem 0 1rem;
         p {
             width: 80%;
         }
@@ -739,6 +764,7 @@ video {
     .headline {
         font-size: 1.5rem;
         font-weight: 500;
+        font-weight: 700;
     }
     h6 {
         text-transform: uppercase;
@@ -799,12 +825,14 @@ video {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
     bottom: 0;
+    right: 0;
     width: 100vw;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     color: #fff;
-    z-index: 100;
+    z-index: 110;
+    touch-action: none;
     .cart-container {
         position: relative;
         height: 100vh;
@@ -919,7 +947,7 @@ video {
 
 .shop,
 .shop-single {
-    margin-top: 20vh;
+    margin-top: 40vh;
     .flex {
         display: flex;
         gap: 2rem;
@@ -959,7 +987,7 @@ video {
 
 .marketplace {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     width: 100%;
     flex-wrap: wrap;
     align-items: center;
@@ -971,36 +999,57 @@ video {
     background: #fff;
     color: #000;
     width: 300px;
-    height: 400px;
+    height: 430px;
     position: relative;
     margin: 1rem 0;
-    border-radius: 10px;
+    border-radius: 4px;
     cursor: pointer;
     overflow: hidden;
-    box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.2);
     transition: all 0.4s ease;
     img {
         object-fit: cover;
-        height: 320px;
+        height: 300px;
         transform: translateZ(0);
         transition: all 0.4s ease;
     }
     .shop-text {
-        text-align: center;
         margin-top: 10px;
         padding: 0 10px;
-        h6 {
+        h4 {
             text-transform: uppercase;
             font-size: 1rem;
             margin-bottom: 5px;
         }
+        h6{
+            color: gray;
+            text-transform: lowercase;
+            font-size: 0.8rem;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
         p {
-            color: #f53b3b;
             font-weight: 700;
+            font-size: 1.25rem;
+        }
+        button{
+            background: #111;
+             color: #ddd;
+             display: flex;
+             align-items: center;
+             padding: 10px;
+             font-size: 1rem;
+             transition: all 0.2s ease;
+             &:hover{
+                background: #fff;
+                color: #111;
+                border: 1px solid #111;
+                transition: all 0.2s ease;
+             }
         }
     }
     &:hover {
-        transform: scale(0.9);
+        transform: scale(0.97);
     }
 }
 
@@ -1063,7 +1112,7 @@ video {
 }
 
 .contact {
-    margin-top: 20vh;
+    margin-top: 30vh;
     margin-bottom: 15vh;
     .contact-details {
         margin-top: 2rem;
@@ -1125,11 +1174,11 @@ video {
                 position: relative;
                 transition: all 0.3s ease;
                 height: 2px;
-                width: 30px;
+                width: 25px;
                 background: $white;
             }
             .sec {
-                margin-top: 10px;
+                margin-top: 9px;
             }
         }
     }
@@ -1187,7 +1236,6 @@ video {
         font-size: 2rem;
     }
     .home {
-        height: 70vh;
         .overlay {
             h2 {
                 width: 90%;
@@ -1195,7 +1243,6 @@ video {
         }
     }
     .showcase {
-        height: 70vh;
         .tophead {
             width: 100%;
         }
@@ -1230,11 +1277,14 @@ video {
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
     .shop-single {
         section {
             width: 85%;
         }
+    }
+    p{
+        font-size: 0.9rem;
     }
     .headline {
         font-size: 1.5rem;
@@ -1258,9 +1308,6 @@ video {
     .roos {
         .grid {
             gap: 2rem;
-        }
-        .tophead {
-            font-size: 0.8rem;
         }
     }
     .newSwiper {
@@ -1514,3 +1561,17 @@ video {
         background: #46a9ff;
     }
 }
+
+.fixed{
+    box-shadow: 0px 4px 15px rgb(0 0 0 / 20%);
+}
+
+.progress {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: #111;
+    bottom: 10px;
+}
+  

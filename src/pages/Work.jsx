@@ -41,6 +41,16 @@ const Work = () => {
               })
             }
           </div>
+          <div>
+            <section>
+              {filterWork.length <= 0 && 
+              <div className='center'>
+                <h4 className="tophead">
+                  loading...
+                </h4>
+              </div>}
+            </section>
+          </div>
         <div className="work-container">
           {
               filterWork?.map(

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Logo from './Logo'
@@ -7,18 +7,26 @@ import Social from './Social'
 import {motion} from 'framer-motion'
 import { useAnimations } from './useAnimations'
 import { BsFillPaletteFill } from 'react-icons/bs'
-import { useArtContext } from '../lib/context'
 
 
 
 
 const Container = styled.nav`
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 1rem 0;
-position: relative;
+position: fixed;
+top: 0;
+width: 100vw;
+background: #fff;
+
 overflow: hidden;
+z-index: 100;
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
 `
 
 
@@ -94,14 +102,20 @@ li{
     text-align: center;
     flex-direction: column;
     width: 100%;
+    gap: 1.5rem;
   }
 }
 
 li{
   text-transform: uppercase;
-  font-family: "Poppins";
   transition: 300ms ease;
   overflow: hidden;
+
+  a{
+    font-family: "Lobster Two";
+    font-weight: light;
+    cursor: pointer;
+  }
 
   &:hover {
     color: #f53b3b;
@@ -115,8 +129,8 @@ li{
     }
     
 
-    @media(max-width: 25em){
-      font-size: 1.5rem;
+    @media(max-width: 500px){
+      font-size: 1.25rem;
     }
   }
 
@@ -129,16 +143,35 @@ const Navigation = () => {
   const [click, setClick] = useState(false);
   const [current, setCurrent] = useState(1);
   const { transition, textReveal } = useAnimations();
-  const { totalQuantities} = useArtContext();
+  const [fixed, setFixed] = useState('');
+  const navRef = useRef();
 
+
+  useEffect(() => {
+
+    const windowScroll = () => {
+      let windowHeight = window.scrollY
+  
+      if(windowHeight > 500){
+        setFixed('fixed');
+      } else{
+        setFixed('')
+      }
+    }
+
+    window.addEventListener('scroll', windowScroll);
+  })
 
   const handleClick = () => {
     setClick(!click);
   }
 
   return (
-    <section id='nav'>
-      <Container>
+    <div id='nav'>
+
+      <Container ref={navRef} className={`${fixed}`}>
+        <section className='container'>
+
         <Logo />
         <MenuList click={click}>
           <motion.ul onClick={handleClick} className='nav-list'
@@ -153,7 +186,7 @@ const Navigation = () => {
             <motion.li id="home"
               variants={textReveal}
               initial='bananin'
-              whileInView='bananon'
+              animate='bananon'
               transition={{...transition, delay: 0.1}}
             >
               <Link to='/' onClick={() => setCurrent(1)} className={current === 1 ? 'active' : ''}>
@@ -163,7 +196,7 @@ const Navigation = () => {
             <motion.li
               variants={textReveal}
               initial='bananin'
-              whileInView='bananon'
+              animate='bananon'
               transition={{...transition, delay: 0.2}}
             >
               <Link to='/about' onClick={() => setCurrent(2)} className={current === 2 ? 'active' : ''}>
@@ -173,7 +206,7 @@ const Navigation = () => {
             <motion.li
               variants={textReveal}
               initial='bananin'
-              whileInView='bananon'
+              animate='bananon'
               transition={{...transition, delay: 0.3}}
             >
               <Link to='/works' onClick={() => setCurrent(3)} className={current === 3 ? 'active' : ''}>
@@ -184,7 +217,7 @@ const Navigation = () => {
             <motion.li
               variants={textReveal}
               initial='bananin'
-              whileInView='bananon'
+              animate='bananon'
               transition={{...transition, delay: 0.4}}>
               <Link to='/exhibition' onClick={() => setCurrent(4)} className={current === 4 ? 'active' : ''}>
                 exhibition
@@ -193,17 +226,20 @@ const Navigation = () => {
             <motion.li
               variants={textReveal}
               initial='bananin'
-              whileInView='bananon'
+              animate='bananon'
               transition={{...transition, delay: 0.5}}
               >
-              <Link to='/shop' onClick={() => setCurrent(5)} className={current === 5 ? 'active' : ''}>
-                shop [{totalQuantities}]
+              <Link to='/shop' onClick={() => {
+                setCurrent(5)
+              }} 
+                className={current === 5 ? 'active' : ''}>
+                shop
               </Link>
             </motion.li>
             <motion.li
               variants={textReveal}
               initial='bananin'
-              whileInView='bananon'
+              animate='bananon'
               transition={{...transition, delay: 0.6}}>
               <Link to='/contact' onClick={() => setCurrent(6)} className={current === 6 ? 'active' : ''}>
                 contact
@@ -223,9 +259,11 @@ const Navigation = () => {
           <div className="first"></div>
           <div className='sec'></div>
         </button>
-
+        </section>
       </Container>
-    </section>
+
+    </div>
+    
   )
 }
 

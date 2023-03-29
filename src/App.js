@@ -23,9 +23,22 @@ import ShopSingle from "./pages/ShopSingle";
 import { Toaster } from "react-hot-toast";
 import Checkout from "./pages/Checkout";
 
+import {
+  motion,
+  useScroll,
+  useSpring
+} from "framer-motion";
+
 function App() {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -57,6 +70,8 @@ function App() {
           <Route path="*" element={<Main />} />
         </Routes>
       </AnimatePresence>
+      
+      <motion.div className="progress" style={{ scaleX }} />
       <Footer />
     </>
   );

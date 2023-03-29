@@ -53,7 +53,7 @@ const Single = () => {
                 <div className='center'>
                   <div className='text'>
                     <h4 className='headline'>
-                      "{item.name}"
+                      {item.name}
                     </h4>
                   </div>
                   <div className="image">

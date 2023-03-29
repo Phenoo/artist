@@ -4,7 +4,7 @@ import {urlFor} from '../lib/client'
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { useArtContext } from '../lib/context';
-import {  AiOutlineShoppingCart } from 'react-icons/ai';
+import {  AiOutlinePlus, AiOutlineShoppingCart } from 'react-icons/ai';
 
 const ShopCard = ({product}) => {
   const {scrollTo} = useArtContext()
@@ -19,12 +19,17 @@ const ShopCard = ({product}) => {
         </div>
       </Link>
         <div className='shop-text'>
-          <h6>
+          <h4>
             {product.name}
+          </h4>
+          <h6>
+            #{product.category}
           </h6>
           <div className="space-between">
             <p>${product.Price}</p>
-            <AiOutlineShoppingCart />
+            <button>
+              <AiOutlinePlus />
+            </button>
           </div>
         </div>
     </motion.article>

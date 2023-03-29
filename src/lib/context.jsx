@@ -15,7 +15,7 @@ export function ArtProvider({children}){
   const [filterWork, setFilterWork] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectType, setSelectType] = useState()
-  const [showCart, setShowCart] = useState(false);
+  const [showCart, setShowCart] = useState(true);
   const [cartItems, setCartItems] = useState([]);
   const [qty, setQty] = useState(1);
   const [totalQuantities, setTotalQuantities] = useState(0);

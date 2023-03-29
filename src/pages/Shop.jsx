@@ -19,6 +19,8 @@ const Shop = () => {
           </section>
   }
   return (
+    <>
+    {showCart && <Cart />}
     <AnimatedCom>
       <div className="shop">
         <section>
@@ -43,14 +45,14 @@ const Shop = () => {
               })
             }
           </div>
-          <div className="shopping-button">
-                    <button onClick={() => setShowCart(!showCart)} className='shopping-bag'> 
-                      <FaShoppingBag /> 
-                      <span>
-                        {totalQuantities}
-                      </span>
-                    </button>
-                  </div>
+          <div className="sho">
+              <button onClick={() => setShowCart(!showCart)} className='-bag'> 
+                <FaShoppingBag /> 
+                <span>
+                  {totalQuantities}
+                </span>
+              </button>
+          </div>
           <div className="marketplace">
           {filterWork &&
             filterWork?.map(
@@ -59,9 +61,10 @@ const Shop = () => {
           }
           </div>
         </section>
-        {showCart && <Cart />}
       </div>
     </AnimatedCom>
+    </>
+
   )
 }
 
