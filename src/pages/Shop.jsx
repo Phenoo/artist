@@ -3,7 +3,6 @@ import AnimatedCom from '../components/AnimatedCom'
 import ShopCard from '../components/ShopCard'
 import Loader from '../components/Loader'
 import {useArtContext} from '../lib/context'
-import { FaShoppingBag } from 'react-icons/fa'
 import Cart from '../components/Cart'
 
 
@@ -11,7 +10,7 @@ import Cart from '../components/Cart'
 
 
 const Shop = () => {
-  const {activeFilter, handleWorkFilter, categories, filterWork, setShowCart, showCart, totalQuantities} = useArtContext();
+  const {activeFilter, handleWorkFilter, categories, filterWork, showCart} = useArtContext();
 
   if (filterWork.length < 1) {
     return <section className='work'>
@@ -44,14 +43,6 @@ const Shop = () => {
                 )
               })
             }
-          </div>
-          <div className="sho">
-              <button onClick={() => setShowCart(!showCart)} className='-bag'> 
-                <FaShoppingBag /> 
-                <span>
-                  {totalQuantities}
-                </span>
-              </button>
           </div>
           <div className="marketplace">
           {filterWork &&

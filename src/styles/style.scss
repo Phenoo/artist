@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Jost&Comforter+Brush&family=Open+Sans:wght@300;400&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Alkatra&family=Jost&Comforter+Brush&family=Open+Sans:wght@300;400&family=Poppins&display=swap');
 $black: #fff;
 $white: #121212;
 *,
@@ -25,7 +25,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    background: $black;
+    background: #edecec;
     color: $white;
 }
 
@@ -39,9 +39,13 @@ a {
     font-family: "Jost", sans-serif;
 }
 
-h2,
+h2{
+    font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+}
+
 h4 {
-    font-family: "Outfit", sans-serif;
+    font-family: "Alkatra", sans-serif;
     font-weight: 500;
 }
 h5{
@@ -92,7 +96,7 @@ section {
 ::-webkit-scrollbar {
     height: 5px;
     width: 5px;
-    background:  #fe0222;
+    background:  #808080;
 }
   
 ::-webkit-scrollbar-thumb {
@@ -101,7 +105,7 @@ section {
 }
   
 ::-webkit-scrollbar-corner {
-    background:  #fe0222;
+    background:  #808080;
 }
 
 .space-between {
@@ -244,7 +248,7 @@ nav {
     height: 90vh;
     position: relative;
     .overlay {
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.2);
         align-items: flex-start;
         h2 {
             text-align: left;
@@ -253,7 +257,7 @@ nav {
         }
         p {
             text-transform: capitalize;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
     }
     .star-svg {
@@ -270,12 +274,11 @@ video {
 }
 
 .showcase {
-    margin: 4rem 0;
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     position: relative;
     .overlay {
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.2);
     }
     .button {
         color: #fff;
@@ -311,8 +314,13 @@ video {
 }
 
 .details {
-    margin: 3rem 0;
+    height: 100vh;
     position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0; 
     .grid {
         place-items: center;
     }
@@ -330,11 +338,15 @@ video {
 }
 
 .roos {
-    background: $white;
-    color: $black;
+    background: #1a1a1a;
+    color: #fff;
     position: relative;
     padding: 2rem 0;
     min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     .grid {
         margin: 2rem auto;
     }
@@ -429,9 +441,15 @@ video {
 }
 
 .market {
-    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 2rem 0;
     svg {
-        color: #000;
+        color: #fff;
     }
     .div {
         img {
@@ -452,12 +470,18 @@ video {
             color: #808080;
         }
     }
+    button{
+        color: #fff;
+    }
 }
 
 .message {
     margin: 5rem 0;
     img {
         border-radius: 10px;
+            @media screen and (max-width: 800px) {
+                display: none;
+            }
     }
 }
 
@@ -543,8 +567,20 @@ video {
 }
 
 .footer-container {
-    margin-top: 5rem;
+    height: 30vh;
     padding: 1rem 0;
+    background-image: url('../assets/Tribal-Dragon-42.png');
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    @media screen and (min-width: 768px) {
+        background-position: right 10px center;
+        background-size: 100px;
+    }
     .logo{
         z-index: 1;
     }
@@ -554,12 +590,15 @@ video {
 .about {
     position: relative;
     .home {
-        height: 100vh;
+        height: 95vh;
     }
     .about-body {
         margin-top: 2rem;
         p {
             margin: 1rem 0;
+        }
+        .headline{
+            margin-top: 2rem;
         }
     }
     span {
@@ -567,9 +606,9 @@ video {
         text-transform: uppercase;
     }
     .overlay {
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.5);
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
     }
     .information {
@@ -1186,18 +1225,19 @@ video {
         .overlay {
             h2 {
                 width: 80%;
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
         }
     }
     .grid {
         grid-template-columns: 100%;
     }
-    footer {
-        .space-between {
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+    .overlay{
+        padding: 1rem;
+    }
+    .footer-container {
+        flex-direction: column;
+        gap: 1.5rem;
     }
     .work {
         .tophead {
@@ -1373,19 +1413,11 @@ video {
         }
     }
     .shop-card {
-        width: 150px;
-        height: 260px;
         border-radius: 5px;
-        img {
-            height: 190px;
-        }
         .shop-text {
             margin-top: 5px;
             h6 {
                 font-size: 0.8rem;
-            }
-            p {
-                font-size: 0.7rem;
             }
         }
     }
@@ -1415,15 +1447,7 @@ video {
     }
 }
 
-@media screen and (max-width: 350px) {
-    .shop-card {
-        width: 130px;
-        height: 230px;
-        img {
-            height: 170px;
-        }
-    }
-}
+
 
 .mainloader {
     height: 100vh;

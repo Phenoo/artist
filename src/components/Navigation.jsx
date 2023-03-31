@@ -7,6 +7,8 @@ import Social from './Social'
 import {motion} from 'framer-motion'
 import { useAnimations } from './useAnimations'
 import { BsFillPaletteFill } from 'react-icons/bs'
+import { FaShoppingBag } from 'react-icons/fa'
+import { useArtContext } from '../lib/context'
 
 
 
@@ -15,7 +17,7 @@ const Container = styled.nav`
 position: fixed;
 top: 0;
 width: 100vw;
-background: #fff;
+background: #edecec;
 
 overflow: hidden;
 z-index: 100;
@@ -31,10 +33,14 @@ z-index: 100;
 
 
 const MenuList = styled.div`
+display: flex;
+gap: 1em;
+align-items: center;
 .paint{
   display: none;
   @media(max-width: 57em){
     display: flex;
+    
   }
 }
 
@@ -47,6 +53,7 @@ li{
 }
 @media(max-width: 57em){
   display: flex;
+
   position: fixed; 
   left: 0;
   right: 0;
@@ -57,7 +64,7 @@ li{
   z-index: 10;
   margin: 0;
   padding: 3rem 2rem;
-  background-color: #fff;
+  background: #edecec;
   transform: ${props => props.click ? 'translateX(0)' : 'translateX(1000%)'};
   transition: all 0.6s ease;
   overflow: hidden;
@@ -145,6 +152,8 @@ const Navigation = () => {
   const { transition, textReveal } = useAnimations();
   const [fixed, setFixed] = useState('');
   const navRef = useRef();
+  const {totalQuantities, showCart, setShowCart} = useArtContext()
+  
 
 
   useEffect(() => {
@@ -246,6 +255,14 @@ const Navigation = () => {
               </Link>
             </motion.li>
           </motion.ul>
+          {/* <div className="">
+            <button onClick={() => setShowCart(!showCart)} className='bag'> 
+              <FaShoppingBag /> 
+              <span>
+                {totalQuantities}
+              </span>
+            </button>
+        </div> */}
           {click && 
             <div className="space-between">
               <Social /> 
@@ -268,3 +285,4 @@ const Navigation = () => {
 }
 
 export default Navigation
+

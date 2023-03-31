@@ -7,7 +7,7 @@ import Social from './Social'
 const Footer = () => {
   return (
     <footer>
-      <section className='footer-container space-between'>
+      <section className='footer-container'>
         <Social />
         <div>
           <p>
